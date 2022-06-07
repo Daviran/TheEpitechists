@@ -10,11 +10,17 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-  build:
-    name: Test project
+testAllModes:
+    name: Test in ${{ matrix.testMode }}
     runs-on: ubuntu-latest
-    steps:
+    strategy:
+      fail-fast: false
+      matrix:
+        testMode:
+          - playmode
+          - editmode
 
+    steps:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -28,9 +34,13 @@ jobs:
           key: Library
 
       # Test
-      - name: Run tests
+      - name: Testing game using GameCI
         uses: game-ci/unity-test-runner@v2
         id: tests
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: 2020.3.15f2
-      
+          testMode: ${{ matrix.testMode }}
+          artifactsPath: ${{ matrix.testMode }}-artifacts
+          checkName: ${{ matrix.testMode }} Test Results
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+my.assembly.*'
