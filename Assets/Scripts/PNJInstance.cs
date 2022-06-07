@@ -5,18 +5,16 @@ using UnityEngine.UI;
 
 public class PNJInstance : MonoBehaviour
 {
-    public string[] dialogs = { "Bonjour", "Au revoir", "Il fait beau non ?", "LoL > la vie", "Je ne bois pas, c'est mauvais pour la planète" };
+    //public string[] sentences = { "Bonjour", "Au revoir", "Il fait beau non ?", "LoL > la vie", "Je ne bois pas, c'est mauvais pour la planète" };
     public Sprite[] skin = new Sprite[10];
     int skinIndex;
     internal PNJController pnjController;
     internal int controllerIndex = -1;
+    public Dialogue dialogs;
     SpriteRenderer chosenSkin;
     Canvas canvas;
     RectTransform boxPosition;
     RectTransform dialogueBox;
-    Text textCanvas;
-    int randomIndex;
-    bool isTrigger = false;
 
     private void Awake()
     {
@@ -26,8 +24,6 @@ public class PNJInstance : MonoBehaviour
         canvas = GetComponentInChildren<Canvas>();
         boxPosition = canvas.GetComponentInChildren<RectTransform>();
         dialogueBox = boxPosition.GetComponentInChildren<RectTransform>();
-        textCanvas = dialogueBox.GetComponentInChildren<Text>();
-        randomIndex = Random.Range(0, dialogs.Length);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +32,8 @@ public class PNJInstance : MonoBehaviour
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
-            isTrigger = true;
+            FindObjectOfType<DialogueManager>().TriggerDialog(true, dialogs);
+            //isTrigger = true;
         }
         
     }
@@ -46,7 +43,7 @@ public class PNJInstance : MonoBehaviour
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
-            isTrigger = false;
+            FindObjectOfType<DialogueManager>().TriggerDialog(false, dialogs);
         }
     }
 
@@ -69,6 +66,5 @@ public class PNJInstance : MonoBehaviour
 
     void Update()
     {
-        TriggerDialog();
     }
 }

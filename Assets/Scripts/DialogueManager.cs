@@ -10,33 +10,64 @@ public class DialogueManager : MonoBehaviour
     RectTransform boxPosition;
     RectTransform dialogueBox;
     Text textCanvas;
-    int randomIndex;
-    bool isTrigger = false;
 
     private void Awake()
     {
-        canvas = GetComponentInChildren<Canvas>();
+        canvas = FindObjectOfType<Canvas>();
         boxPosition = canvas.GetComponentInChildren<RectTransform>();
         dialogueBox = boxPosition.GetComponentInChildren<RectTransform>();
         textCanvas = dialogueBox.GetComponentInChildren<Text>();
-        randomIndex = Random.Range(0, dialogs.Length);
+        //randomIndex = Random.Range(0, dialogs.Length);
     }
     void Start()
     {
         sentences = new Queue<string>();
     }
 
-    private void TriggerDialog()
+    public void TriggerDialog(bool boolean, Dialogue dialogs)
     {
-        if (isTrigger && Input.GetKeyDown(KeyCode.E))
+        Debug.Log("FRETA");
+        if (boolean && Input.GetKeyDown(KeyCode.E))
         {
-            textCanvas.text = dialogs[randomIndex];
             canvas.enabled = true;
-            randomIndex++;
-            if (randomIndex >= dialogs.Length) randomIndex = 0;
+            Debug.Log("BITE");
+            sentences.Clear();
+            foreach (string sentence in dialogs.dialoguesCafet)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+            DisplayNextSentence();
         }
 
-        if (!isTrigger) canvas.enabled = false;
+        if (!boolean) canvas.enabled = false;
+    }
+
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+        string sentence = sentences.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence (string sentence)
+    {
+        textCanvas.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            textCanvas.text += letter;
+            yield return null;
+        }
+    }
+
+    void EndDialogue()
+    {
+
     }
     void Update()
     {
