@@ -33,10 +33,3 @@ jobs:
         id: tests
         with:
           unityVersion: 2020.3.15f2
-      
-      - name: Code coverage
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: Coverage results for ${{ matrix.testMode }}
-          path: ${{ steps.tests.outputs.coveragePath }}
