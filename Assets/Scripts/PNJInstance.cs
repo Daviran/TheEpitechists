@@ -179,7 +179,19 @@ public class PNJInstance : MonoBehaviour
                 break;
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Vector3 temp = directionVector;
+        ChangeDirection();
+        int loops = 0;
+        while(temp == directionVector && loops < 100)
+        {
+            loops++;
+            ChangeDirection();
+        }
+    }
+
 
     void PNJPath()
     {
