@@ -38,8 +38,21 @@ public class COntroller : MonoBehaviour
                 {
                     Flip();
                 }*/
+        
+        if (
+            (0 != Input.GetAxisRaw("Horizontal") && 0 == Input.GetAxisRaw("Vertical")) 
+            || 
+            (0 != Input.GetAxisRaw("Vertical") && 0 == Input.GetAxisRaw("Horizontal"))
+            )
+        {
+            myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed * Time.deltaTime;
+        } 
 
-        myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed * Time.deltaTime;
+        if ((0 == Input.GetAxisRaw("Horizontal") && 0 == Input.GetAxisRaw("Vertical"))) 
+        {
+            myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed * Time.deltaTime;
+        }
+
     }
 
 /*    void Flip()
