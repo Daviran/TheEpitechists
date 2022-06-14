@@ -16,25 +16,27 @@ public class PNJInstance : MonoBehaviour
     RectTransform dialogueBox;
     Text dialogueText;
     AudioSource typeSound;
-    private bool pnjSpeaks = false;
+    public bool pnjSpeaks = false;
     private Queue<string> sentences;
+    public Collider2D coordonnees;
 
     Vector3 directionVector;
+    Vector3 coor;
     Transform myTransform;
-    float speed = 7;
+    public float speed = 2;
     Rigidbody2D myRigidBody;
-    Collider2D flowers;
-    Collider2D stone;
-    Collider2D grass;
-    Collider2D grassyStone;
+    Zoning zones;
+    public bool canMove = true;
+    public bool obstacles = false;
+    RaycastHit2D[] results;
+    int intTest = 0;
+    bool traveling = false;
+    int shuffle;
 
 
     private void Awake()
     {
-        flowers = GameObject.FindGameObjectWithTag("Flowers").GetComponent<Collider2D>();
-        stone = GameObject.FindGameObjectWithTag("Stone").GetComponent<Collider2D>();
-        grass = GameObject.FindGameObjectWithTag("Grass").GetComponent<Collider2D>();
-        grassyStone = GameObject.FindGameObjectWithTag("GrassyStone").GetComponent<Collider2D>();
+        zones = GetComponent<Zoning>();
         myRigidBody = GetComponent<Rigidbody2D>();
         myTransform = GetComponent<Transform>();
         chosenSkin = GetComponent<SpriteRenderer>();
@@ -54,6 +56,7 @@ public class PNJInstance : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            canMove = false;
             pnjSpeaks = true;
         }
         
@@ -63,14 +66,15 @@ public class PNJInstance : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            canMove = true;
             pnjSpeaks = false;
             canvas.enabled = false;
         }
     }
 
-    private void TriggerDialogue()
+    public void TriggerDialogue()
     {
-        if(pnjSpeaks && Input.GetKeyDown(KeyCode.E))
+        if (pnjSpeaks && Input.GetKeyDown(KeyCode.E))
         {
             typeSound.enabled = true;
             typeSound.Play();
@@ -83,7 +87,22 @@ public class PNJInstance : MonoBehaviour
         }
     }
 
-    private void DisplayNextSentence()
+    public void StartDialogue()
+    {
+        if (pnjSpeaks && Input.GetKeyDown(KeyCode.E))
+        {
+            typeSound.enabled = true;
+            typeSound.Play();
+            typeSound.loop = false;
+            foreach (string sentence in dialogues)
+            {
+                sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+    }
+
+    public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -94,7 +113,7 @@ public class PNJInstance : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        //typeSound.enabled = false;
+        typeSound.enabled = false;
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -109,55 +128,75 @@ public class PNJInstance : MonoBehaviour
 
     }
 
-    private void Move()
+    public void Move()
     {
         Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
-          //  Debug.Log("Flowers" + flowers.bounds.Contains(temp));
-       if(flowers.bounds.Contains(myTransform.position)) {
-            if(flowers.bounds.Contains(temp))
-            {
-                myRigidBody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeDirection();
-            }
-       } else if(stone.bounds.Contains(myTransform.position)) {
-           // Debug.Log("STONE" + stone.bounds.Contains(temp));
-           if (stone.bounds.Contains(temp))
-            {
-                myRigidBody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeDirection();
-            }
-       } else if(grass.bounds.Contains(myTransform.position))
+        float step = speed * Time.deltaTime;
+        Collider2D zone = zones.zones[0];
+        
+
+        foreach (Collider2D z in zones.zones)
         {
-           // Debug.Log("GRASS" + grass.bounds.Contains(temp));
-            if (grass.bounds.Contains(temp))
+            if (z.bounds.Contains(myTransform.position))
             {
-                myRigidBody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeDirection();
-            }
-       } else if(grassyStone.bounds.Contains(myTransform.position))
-        {
-          //  Debug.Log("GRASSYSTONE" + grassyStone.bounds.Contains(temp));
-            if (grassyStone.bounds.Contains(temp))
-            {
-                myRigidBody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeDirection();
+                zone = z;
             }
         }
+        if (!traveling)
+        {
+            shuffle = Random.Range(0, 18);
+        }
+        if (traveling && obstacles)
+        {
+            myTransform.position = Vector3.MoveTowards(myTransform.position, myTransform.position, step);
+            int nextDirUp = myRigidBody.Cast(Vector2.up, results, Mathf.Infinity);
+            Debug.Log(nextDirUp);
+            int nextDirDown = myRigidBody.Cast(Vector2.down, results, Mathf.Infinity);
+            int nextDirRight = myRigidBody.Cast(Vector2.right, results, Mathf.Infinity);
+            int nextDirLeft = myRigidBody.Cast(Vector2.left, results, Mathf.Infinity);
+        }
+        if (intTest >= 1000) traveling = true;
+        if(traveling)
+        {
+            myTransform.position = Vector3.MoveTowards(myTransform.position, zones.zones[shuffle].transform.position, step);
+            intTest = 0;
+        }
+        if (intTest >= 1000 && !obstacles)
+        {
+            int shuffle = Random.Range(0, 18);
+            myTransform.position = Vector3.MoveTowards(myTransform.position, zones.zones[shuffle].transform.position, step);
+            Debug.Log("DESTINATION " + zones.zones[shuffle].transform.position);
+            intTest = 0;
+            traveling = true;
+                
+        } else if(intTest >= 1000 && obstacles)
+        {
+            myTransform.position = Vector3.MoveTowards(myTransform.position, myTransform.position, step);
+            int nextDirUp = myRigidBody.Cast(Vector2.up, results, Mathf.Infinity);
+            Debug.Log(nextDirUp);
+            int nextDirDown = myRigidBody.Cast(Vector2.down, results, Mathf.Infinity);
+            int nextDirRight = myRigidBody.Cast(Vector2.right, results, Mathf.Infinity);
+            int nextDirLeft = myRigidBody.Cast(Vector2.left, results, Mathf.Infinity);
+
+        }
+        if(zone.bounds.Contains(myTransform.position) && !obstacles && !traveling)
+        {
+            coor = zone.transform.position;
+            intTest++;
+            myRigidBody.MovePosition(temp);
+        } else if(!traveling)
+        {
+            ChangeDirection();
+        }
+
+        
+
+            /*myTransform.position = Vector3.MoveTowards(myTransform.position, coor, step);
+
+            ChangeDirection();*/
     }
 
-    void ChangeDirection()
+    public void ChangeDirection()
     {
         int direction = Random.Range(0, 4);
 
@@ -180,8 +219,9 @@ public class PNJInstance : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
+        obstacles = true;
         Vector3 temp = directionVector;
         ChangeDirection();
         int loops = 0;
@@ -204,8 +244,10 @@ public class PNJInstance : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(flowers.bounds.Contains(myTransform.position));
-        Move();
+        if(canMove)
+        {
+            Move();
+        }
         TriggerDialogue();
     }
 }

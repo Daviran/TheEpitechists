@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public new Rigidbody2D rigidbody;
+    Rigidbody2D rigidbody;
 
     Vector2 movement;
 
     // Update is called once per frame
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
