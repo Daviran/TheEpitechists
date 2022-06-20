@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,22 +24,27 @@ public class PNJInstance : MonoBehaviour
     Transform myTransform;
     float speed = 7;
     Rigidbody2D myRigidBody;
-    Collider2D flowers;
-    Collider2D stone;
-    Collider2D grass;
-    Collider2D grassyStone;
+
+    public Collider2D wanderArea;
+
+    /*public Collider2D[] coords;
+    int coordsIndex;
+    public Collider2D[] rooms;
+    public Collider2D presentRoom;
+    bool wandering = true;
+    bool travelingDelay = false;*/
+
+    float moveTimeSeconds;
+    float moveTime = 5;
 
 
     private void Awake()
     {
-        flowers = GameObject.FindGameObjectWithTag("Flowers").GetComponent<Collider2D>();
-        stone = GameObject.FindGameObjectWithTag("Stone").GetComponent<Collider2D>();
-        grass = GameObject.FindGameObjectWithTag("Grass").GetComponent<Collider2D>();
-        grassyStone = GameObject.FindGameObjectWithTag("GrassyStone").GetComponent<Collider2D>();
+        moveTimeSeconds = moveTime;
         myRigidBody = GetComponent<Rigidbody2D>();
         myTransform = GetComponent<Transform>();
         chosenSkin = GetComponent<SpriteRenderer>();
-        skinIndex = Random.Range(0, 9);
+        skinIndex = UnityEngine.Random.Range(0, 9);
         chosenSkin.sprite = skin[skinIndex];
         canvas = GetComponentInChildren<Canvas>();
         boxPosition = canvas.GetComponentInChildren<RectTransform>();
@@ -56,7 +62,6 @@ public class PNJInstance : MonoBehaviour
         {
             pnjSpeaks = true;
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -109,57 +114,77 @@ public class PNJInstance : MonoBehaviour
 
     }
 
-    private void Move()
+    /*private void Move()
     {
         Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
-          //  Debug.Log("Flowers" + flowers.bounds.Contains(temp));
-       if(flowers.bounds.Contains(myTransform.position)) {
-            if(flowers.bounds.Contains(temp))
-            {
-                myRigidBody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeDirection();
-            }
-       } else if(stone.bounds.Contains(myTransform.position)) {
-           // Debug.Log("STONE" + stone.bounds.Contains(temp));
-           if (stone.bounds.Contains(temp))
-            {
-                myRigidBody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeDirection();
-            }
-       } else if(grass.bounds.Contains(myTransform.position))
+        if(wandering)
         {
-           // Debug.Log("GRASS" + grass.bounds.Contains(temp));
-            if (grass.bounds.Contains(temp))
+            foreach(Collider2D room in rooms)
+            {
+                if(room.bounds.Contains(myTransform.position)) {
+                    presentRoom = room;
+                    Debug.Log(presentRoom);
+                }
+            }
+
+            Debug.Log(presentRoom.bounds.Contains(temp));
+
+            if (presentRoom.bounds.Contains(temp))
             {
                 myRigidBody.MovePosition(temp);
-            }
-            else
+            } else
             {
                 ChangeDirection();
             }
-       } else if(grassyStone.bounds.Contains(myTransform.position))
+        } else
         {
-          //  Debug.Log("GRASSYSTONE" + grassyStone.bounds.Contains(temp));
-            if (grassyStone.bounds.Contains(temp))
+            Debug.Log("WANDERING " + wandering);
+            float step = speed * Time.deltaTime;
+            int trueIndex = coordsIndex + 1;
+            if (trueIndex > (coords.Length -1)) trueIndex = 0;
+            myTransform.position = Vector3.MoveTowards(myTransform.position, coords[trueIndex].transform.position, step);
+            if (coords[trueIndex].bounds.Contains(myTransform.position) && hasard == 0)
             {
-                myRigidBody.MovePosition(temp);
-            }
-            else
+                Debug.Log("HASARD " + hasard);
+                hasard++;
+                if (hasard > 3) hasard = 0;
+                travelingDelay = true;
+                wandering = true;
+                StopAllCoroutines();
+                StartCoroutine(SetTravelingDelay());
+            } else if(coords[trueIndex].bounds.Contains(myTransform.position) && hasard != 0)
             {
-                ChangeDirection();
+                myTransform.position = Vector3.MoveTowards(myTransform.position, coords[trueIndex + 1].transform.position, step);
+                hasard++;
+                if (hasard > 3) hasard = 0;
+                wandering = true;
+                travelingDelay = true;
+                StopAllCoroutines();
+                StartCoroutine(SetTravelingDelay());
             }
         }
+    }*/
+
+    void Wander()
+    {
+        Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
+        if(wanderArea.bounds.Contains(temp))
+        {
+            myRigidBody.MovePosition(temp);
+        } else
+        {
+            ChangeDirection();
+        }
+    }
+
+    void Travel()
+    {
+
     }
 
     void ChangeDirection()
     {
-        int direction = Random.Range(0, 4);
+        int direction = UnityEngine.Random.Range(0, 4);
 
         switch(direction)
         {
@@ -204,8 +229,13 @@ public class PNJInstance : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(flowers.bounds.Contains(myTransform.position));
-        Move();
+        moveTimeSeconds -= Time.deltaTime;
+        if(moveTimeSeconds <= 0)
+        {
+            moveTimeSeconds = moveTime;
+            ChangeDirection();
+        }
+        Wander();
         TriggerDialogue();
     }
 }
