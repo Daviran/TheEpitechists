@@ -14,7 +14,10 @@ namespace TopdownRPG.Mechanics
             Social = social;
         }
 
-        public void
+        public override void SpecialAttack()
+        {
+
+        }
         void Start()
         {
         
