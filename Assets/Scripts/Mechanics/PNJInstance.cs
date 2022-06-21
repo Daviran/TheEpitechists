@@ -235,7 +235,10 @@ public class PNJInstance : MonoBehaviour
             moveTimeSeconds = moveTime;
             ChangeDirection();
         }
-        Wander();
+        if(!pnjSpeaks)
+        {
+            Wander();
+        }
         TriggerDialogue();
     }
 }
