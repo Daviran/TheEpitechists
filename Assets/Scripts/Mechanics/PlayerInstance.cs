@@ -4,8 +4,27 @@ using UnityEngine;
 
 namespace TopdownRPG.Mechanics
 {
-    public class PlayerInstance : MonoBehaviour
+    public class PlayerInstance
     {
+
+        public PlayerInstance()
+        {
+            CurrentHp = MaxHp;
+        }
+        public enum PlayerState
+        {
+            escape,
+            actionRPG
+        }
+        public PlayerState playerState;
+
+        private string _name;
+        public virtual string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+
         private float _maxHp = 10f;
         public virtual float MaxHp
         {
@@ -20,14 +39,14 @@ namespace TopdownRPG.Mechanics
             set => _currentHp = value;
         }
 
-        private float _maxSpecial = 5f;
+        private float _maxSpecial = 100f;
         public virtual float MaxSpecial
         {
             get => _maxSpecial;
             set => _maxSpecial = value;
         }
 
-        private float _currentSpecial;
+        private float _currentSpecial = 0;
         public virtual float CurrentSpecial
         {
             get => _currentSpecial;
@@ -55,32 +74,64 @@ namespace TopdownRPG.Mechanics
             set => _social = value;
         }
 
+        private float _damage;
+        public virtual float Damage
+        {
+            get => _damage;
+            set => _damage = value;
+        }
+
         public virtual void SpecialAttack()
         {
-            if (CurrentSpecial == MaxSpecial && Input.GetKey(KeyCode.F))
+            if (CurrentSpecial == MaxSpecial && Input.GetKey(KeyCode.F) && playerState == PlayerState.escape)
             {
-
+                Debug.Log("Coup Special !");
             }
         }
 
-        public virtual void SpecialRPGAttack()
+        public virtual void SpecialRPGAttack(EnnemiesInstance[] ennemies)
         {
-            if (CurrentSpecial == MaxSpecial && Input.GetKey(KeyCode.F))
+            if (CurrentSpecial == MaxSpecial && Input.GetKey(KeyCode.F) && playerState == PlayerState.actionRPG)
             {
-
+                Debug.Log("Coup Special RPG !");
             }
         }
 
-        void Start()
+        public void TakeDamage(int number)
         {
+            CurrentHp -= (number - Physic);
+        }
+
+        public void Heal(int number)
+        {
+            CurrentHp += number;
+        }
+
+        public void InflictDamage(EnnemiesInstance ennemy)
+        {
+            int damage = (int)Damage + (int)Physic;
+            ennemy.TakeDamage(damage);
+        }
+
+        public void SwitchPlayerState()
+        {
+            if (Input.GetKey(KeyCode.Space)) playerState = PlayerState.actionRPG;
+        }
+
+        /*void Start()
+        {
+            playerState = PlayerState.escape;
             CurrentHp = MaxHp;
         }
 
-        // Update is called once per frame
         void Update()
         {
-        
-        }
+            if (CurrentSpecial != MaxSpecial)
+            {
+                CurrentSpecial++;
+            }
+            SwitchPlayerState();
+        }*/
     }
 
 }

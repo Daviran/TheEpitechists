@@ -3,33 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLevel : MonoBehaviour
+namespace TopdownRPG.UI
 {
-    public float transitionTime = 1f;
-    public Animator transition;
-
-    void LoadNextLevel()
+    public class LoadLevel : MonoBehaviour
     {
-        StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1));
-    }
+        public float transitionTime = 1f;
+        public Animator transition;
 
-    IEnumerator LoadNextScene(int levelIndex)
-    {
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+        public void LoadNextLevel()
+        {
+            StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1));
+        }
+
+        IEnumerator LoadNextScene(int levelIndex)
+        {
+            //transition.SetTrigger("Start");
+            yield return new WaitForSeconds(transitionTime);
+            SceneManager.LoadScene(levelIndex);
 
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
         
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

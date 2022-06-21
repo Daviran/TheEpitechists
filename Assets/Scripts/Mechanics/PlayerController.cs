@@ -1,27 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopdownRPG.Gameplay;
 using UnityEngine;
 
 namespace TopdownRPG.Mechanics
 {
     public class PlayerController : MonoBehaviour
-{
-    public float moveSpeed = 5f;
-    public new Rigidbody2D rigidbody;
-
-    Vector2 movement;
-
-    // Update is called once per frame
-    void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-    }
+        public float moveSpeed = 5f;
+        public new Rigidbody2D rigidbody;
+        public PlayerInstance player;
+        /*public EdouPlayer edouard;
+        public DavidPlayer david;*/
 
-    private void FixedUpdate()
-    {
-        rigidbody.MovePosition(rigidbody.position + moveSpeed * Time.fixedDeltaTime * movement);
+        Vector2 movement;
+
+        private void Awake()
+        {
+            switch(PlayerChoice.playerIndex)
+            {
+                case 0:
+                    player = new EdouPlayer();
+                    break;
+                case 1:
+                    player = new DavidPlayer();
+                    break;
+            }
+        }
+
+        private void Start()
+        {
+            
+        }
+        void Update()
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
+
+        private void FixedUpdate()
+        {
+            rigidbody.MovePosition(rigidbody.position + moveSpeed * Time.fixedDeltaTime * movement);
+        }
     }
-}
 
 }
