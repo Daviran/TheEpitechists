@@ -15,23 +15,7 @@ namespace TopdownRPG.Model
 
         public Transform spawnPoint;
 
-        public PlayerInstance playerChoice;
 
-        public PlayerInstance CharacterSelection(string choice)
-        {
-            switch(choice)
-            {
-                case "edouard":
-                    playerChoice = new EdouPlayer();
-                    break;
-                case "david":
-                    playerChoice = new DavidPlayer();
-                    break;
-                default:
-                    break;
-            }
-            return playerChoice;
-        }
     }
 }
 
