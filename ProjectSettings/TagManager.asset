@@ -6,6 +6,12 @@ TagManager:
   tags:
   - CanvasDialogue
   - Coordonnees
+  - Stone
+  - Coordonnes
+  - GrassyStone
+  - Grass
+  - Flowers
+  - Enemy
   layers:
   - Default
   - TransparentFX
