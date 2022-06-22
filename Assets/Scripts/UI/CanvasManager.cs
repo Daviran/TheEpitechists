@@ -41,7 +41,8 @@ public class CanvasManager : MonoBehaviour
     {
         StopAllCoroutines();
         canvas.gameObject.SetActive(false);
-        computer.player.GetComponent<PlayerController>().canMove = true;
+        Time.timeScale = 1;
+        //computer.player.GetComponent<PlayerController>().canMove = true;
     }
 
     public IEnumerator DisplayWelcomeText()
