@@ -8,10 +8,6 @@ using UnityEngine;
 public class Computer : MonoBehaviour
 {
     public CanvasManager canvasManager;
-    /*public Canvas canvas;
-    public TextMeshProUGUI canvasText;
-    public Button button1;
-    public Button button2;*/
     public List<Dictionary<string, string>> questions = new List<Dictionary<string, string>>
     {
         new Dictionary<string, string>
@@ -33,7 +29,7 @@ public class Computer : MonoBehaviour
             { "ReponseB", "erreur" },
         },
     };
-    private List<bool> answers = new List<bool>();
+    public List<bool> answers = new List<bool>();
     public bool playerInRange = false;
     public GameObject player;
     
@@ -46,7 +42,6 @@ public class Computer : MonoBehaviour
     // Question
     public void AskQuestion()
     {
-        
         if (canvasManager.index != answers.Count) return;
         StartCoroutine(canvasManager.DisplayQuestions());
         if (canvasManager.index >= 2) canvasManager.index = 2;
@@ -56,81 +51,46 @@ public class Computer : MonoBehaviour
 
     public void GetAnswer(int answer)
     {
-        Debug.Log(canvasManager.index);
         switch(canvasManager.index)
         {
             case 0:
                 if(answer == 0)
                 {
                     answers.Add(true);
-                    canvasManager.reponseA.interactable = false;
-                    Debug.Log(canvasManager.reponseA.IsInteractable());
-                    if (canvasManager.reponseB.interactable == false)
-                    {
-                        answers.RemoveAt(answers.ToArray().Length - 1);
-                        canvasManager.reponseB.interactable = true;
-                        Debug.Log(canvasManager.reponseB.IsInteractable());
-                    }
-                    canvasManager.index++;
                 }
                 else
                 {
                     answers.Add(false);
-                    canvasManager.reponseB.interactable = false;
-                    Debug.Log(canvasManager.reponseA.IsInteractable());
-                    if (canvasManager.reponseA.interactable == false)
-                    {
-                        answers.RemoveAt(answers.ToArray().Length - 1);
-                        canvasManager.reponseA.interactable = true;
-                        Debug.Log(canvasManager.reponseB.IsInteractable());
-                    }
-                    canvasManager.index++;
                 }
                 break;
             case 1:
                 if (answer == 1)
                 {
                     answers.Add(true);
-                    canvasManager.reponseA.interactable = false;
-                    if (canvasManager.reponseB.interactable == false)
-                    {
-                        answers.RemoveAt(answers.ToArray().Length - 1);
-                        canvasManager.reponseB.interactable = true;
-                    }
                 }
                 else
                 {
                     answers.Add(false);
-                    canvasManager.reponseB.interactable = false;
-                    if (canvasManager.reponseA.interactable == false)
-                    {
-                        answers.RemoveAt(answers.ToArray().Length - 1);
-                        canvasManager.reponseA.interactable = true;
-                    }
                 }
                 break;
             case 2:
                 if (answer == 0)
                 {
                     answers.Add(true);
-                    canvasManager.reponseA.interactable = false;
-                    if (canvasManager.reponseB.interactable == false)
-                    {
-                        answers.RemoveAt(answers.ToArray().Length - 1);
-                        canvasManager.reponseB.interactable = true;
-                    }
                 }
                 else
                 {
                     answers.Add(false);
-                    canvasManager.reponseB.interactable = false;
-                    if (canvasManager.reponseA.interactable == false)
-                    {
-                        answers.RemoveAt(answers.ToArray().Length - 1);
-                        canvasManager.reponseA.interactable = true;
-                    }
                 }
                 break;
+        }
+        canvasManager.index++;
+        if(canvasManager.index > 2)
+        {
+            GetScore();
+        } else
+        {
+            AskQuestion();
         }
     }
 
@@ -151,6 +111,7 @@ public class Computer : MonoBehaviour
     {
         canvasManager.index = 0;
         answers.Clear();
+        canvasManager.start.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
         StopAllCoroutines();
         StartCoroutine(canvasManager.DisplayWelcomeText());
     }

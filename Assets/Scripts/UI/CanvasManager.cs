@@ -41,14 +41,23 @@ public class CanvasManager : MonoBehaviour
     {
         StopAllCoroutines();
         canvas.gameObject.SetActive(false);
+        start.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
+        computer.answers.Clear();
+        index = 0;
         Time.timeScale = 1;
-        //computer.player.GetComponent<PlayerController>().canMove = true;
     }
 
     public IEnumerator DisplayWelcomeText()
     {
         canvasText.text = "";
-        string welcome = "Bienvenue à Epitech ! Pour commencer ta piscine de code, appuie sur Start";
+        string welcome;
+        /*if (computer.player.piscineSuccess)
+        {
+            welcome = "Vous avez déjà réussi la piscine, félicitations !";
+            start.onClick.RemoveAllListeners();
+            start.GetComponentInChildren<TextMeshProUGUI>().text = "Press Esc. to exit";
+        }*/
+        welcome = "Bienvenue à Epitech ! Pour commencer ta piscine de code, appuie sur Start";
         foreach (char letter in welcome)
         {
             canvasText.text += letter;
@@ -58,12 +67,12 @@ public class CanvasManager : MonoBehaviour
 
     public IEnumerator DisplayQuestions()
     {
+        start.gameObject.SetActive(false);
         if(reponseA.enabled)
         {
             reponseA.gameObject.SetActive(true);
             reponseB.gameObject.SetActive(true);
         }
-        start.GetComponentInChildren<TextMeshProUGUI>().text = "Next";
         canvasText.text = "";
         string question = computer.questions[index]["Question"];
         foreach (char letter in question)
@@ -73,18 +82,18 @@ public class CanvasManager : MonoBehaviour
         }
         reponseA.GetComponentInChildren<TextMeshProUGUI>().text = computer.questions[index]["ReponseA"];
         reponseB.GetComponentInChildren<TextMeshProUGUI>().text = computer.questions[index]["ReponseB"];
-        if(index >= 2)
-        {
-            start.onClick.RemoveAllListeners();
-            start.onClick.AddListener(delegate { computer.GetScore(); });
-        }
     }
 
     public IEnumerator DisplayResults(int result)
     {
-        if(result < 2)
+
+        reponseA.gameObject.SetActive(false);
+        reponseB.gameObject.SetActive(false);
+        start.gameObject.SetActive(true);
+
+        if(result <= 2)
         {
-            start.GetComponentInChildren<TextMeshProUGUI>().text = "Retry";
+            start.GetComponentInChildren<TextMeshProUGUI>().text = "Press \"r\" to retry";
             canvasText.text = "";
             string question = "Vous avez échoué. Laissez-vous envahir par l'esprit de 42 et réessayer, ou allez pointer au chômage, looser !";
             foreach (char letter in question)
@@ -92,11 +101,9 @@ public class CanvasManager : MonoBehaviour
                 canvasText.text += letter;
                 yield return null;
             }
-            start.onClick.RemoveAllListeners();
-            start.onClick.AddListener(delegate { computer.TryAgain(); });
         } else
         {
-            start.GetComponentInChildren<TextMeshProUGUI>().text = "Exit";
+            start.GetComponentInChildren<TextMeshProUGUI>().text = "Press Esc. to exit";
             canvasText.text = "";
             string question = "Félicitations ! Un pas de plus en direction de 42 !";
             foreach (char letter in question)
@@ -104,8 +111,6 @@ public class CanvasManager : MonoBehaviour
                 canvasText.text += letter;
                 yield return null;
             }
-            start.onClick.RemoveAllListeners();
-            start.onClick.AddListener(delegate { ExitCanvas(); });
         }
     }
 
@@ -119,6 +124,11 @@ public class CanvasManager : MonoBehaviour
         if(canvas.enabled && Input.GetKey(KeyCode.Escape))
         {
             ExitCanvas();
+        }
+
+        if(canvas.enabled && Input.GetKey(KeyCode.R))
+        {
+            computer.TryAgain();
         }
         
     }
