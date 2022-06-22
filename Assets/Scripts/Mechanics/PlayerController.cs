@@ -10,6 +10,7 @@ namespace TopdownRPG.Mechanics
         public float moveSpeed = 5f;
         public new Rigidbody2D rigidbody;
         public PlayerInstance player;
+        public bool canMove = true;
         /*public EdouPlayer edouard;
         public DavidPlayer david;*/
 
@@ -40,7 +41,10 @@ namespace TopdownRPG.Mechanics
 
         private void FixedUpdate()
         {
-            rigidbody.MovePosition(rigidbody.position + moveSpeed * Time.fixedDeltaTime * movement);
+            if (canMove)
+            {
+                rigidbody.MovePosition(rigidbody.position + moveSpeed * Time.fixedDeltaTime * movement);
+            }
         }
     }
 
