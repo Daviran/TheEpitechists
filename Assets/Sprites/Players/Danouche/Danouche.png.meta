@@ -1,7 +1,37 @@
 fileFormatVersion: 2
-guid: 807406150fa68924880d870944fa21c0
+guid: 8a555c630d13e234d94ae6090af24dda
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2665746939986558707
+    second: Danouche_0
+  - first:
+      213: -8944019954408299028
+    second: Danouche_1
+  - first:
+      213: 8899927792990788327
+    second: Danouche_2
+  - first:
+      213: -3705883648758020759
+    second: Danouche_3
+  - first:
+      213: -6364962053789540738
+    second: Danouche_4
+  - first:
+      213: -1528110244190783879
+    second: Danouche_5
+  - first:
+      213: -794422691512673908
+    second: Danouche_6
+  - first:
+      213: 3040044069836579204
+    second: Danouche_7
+  - first:
+      213: 138530820802202724
+    second: Danouche_8
+  - first:
+      213: -4142828232076148888
+    second: Danouche_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -24,7 +54,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +76,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,41 +117,80 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stephane-player_0
+      name: Danouche_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
+        y: 96
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d014405284d510bd0800000000000000
+      internalID: -2665746939986558707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danouche_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 96
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5ec792d3570e380800000000000000
+      internalID: -8944019954408299028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danouche_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 96
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea97d38c25e28b70800000000000000
+      internalID: 8899927792990788327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danouche_3
+      rect:
+        serializedVersion: 2
+        x: 4
         y: 64
-        width: 32
-        height: 32
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +198,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3c8c4e695fb874db33353274fa2158
-      internalID: -465283199
+      spriteID: 96589d0c47e029cc0800000000000000
+      internalID: -3705883648758020759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stephane-player_1
+      name: Danouche_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 64
-        width: 32
-        height: 32
+        width: 23
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +219,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a705ea8ea4ccc54da95d201a11fdcbd
-      internalID: -1381775547
+      spriteID: e7e980f2cbc1ba7a0800000000000000
+      internalID: -6364962053789540738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stephane-player_2
+      name: Danouche_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 68
         y: 64
-        width: 32
-        height: 32
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,19 +240,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 730b2b1bdcf24f449b257152d81c836f
-      internalID: -2116682234
+      spriteID: 9767f5544df0bcae0800000000000000
+      internalID: -1528110244190783879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stephane-player_3
+      name: Danouche_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 32
-        width: 32
+        width: 24
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -193,61 +261,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18cef23e69f5c56478d0c74f0c5c6294
-      internalID: 196308280
+      spriteID: c8990e665c4a9f4f0800000000000000
+      internalID: -794422691512673908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stephane-player_4
+      name: Danouche_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0ea66458b4d35f468e206f5ac93204f
-      internalID: -1510888235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stephane-player_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9cb5f5f5974a86e4481f673d2758b6f6
-      internalID: 1215519882
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stephane-player_6
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 32
+        width: 24
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -256,19 +282,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4604ff08515c3454ea825103274d7edc
-      internalID: 114707765
+      spriteID: 481642489f7603a20800000000000000
+      internalID: 3040044069836579204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stephane-player_7
+      name: Danouche_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
+        x: 36
+        y: 32
+        width: 23
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -277,8 +303,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9d335ed51e7bf948be27816a335acd6
-      internalID: 1004118980
+      spriteID: 46ccb5c2c092ce100800000000000000
+      internalID: 138530820802202724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danouche_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 32
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f34ad2ca7b186c0800000000000000
+      internalID: -4142828232076148888
       vertices: []
       indices: 
       edges: []
@@ -286,22 +333,13 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 209835eb689c2844f9e9a2ad01c19541
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Stephane-player_6: 114707765
-      Stephane-player_5: 1215519882
-      Stephane-player_4: -1510888235
-      Stephane-player_7: 1004118980
-      Stephane-player_2: -2116682234
-      Stephane-player_3: 196308280
-      Stephane-player_0: -465283199
-      Stephane-player_1: -1381775547
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
