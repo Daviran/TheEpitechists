@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -340,6 +341,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Edou_4: 5034701440684244100
+      Edou_5: -3171634372146815661
+      Edou_3: -1918902072818386795
+      Edou_2: -5027953196118098592
+      Edou_8: 7350283700982091953
+      Edou_0: -918657727837350923
+      Edou_1: -3411498614323349537
+      Edou_7: 7115248427175128334
+      Edou_6: -3670996548220804074
+      Edou_9: -5078478962151875805
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
