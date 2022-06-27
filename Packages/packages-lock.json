@@ -20,7 +20,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
+<<<<<<< HEAD
       "version": "1.15.17",
+=======
+      "version": "1.15.16",
+>>>>>>> feature/500 - wip
       "depth": 0,
       "source": "registry",
       "dependencies": {

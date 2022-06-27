@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CanvasDialogue
   - Coordonnees
+<<<<<<< HEAD
   - Ordinateur
   - Stone
   - Coordonnes
@@ -13,6 +14,24 @@ TagManager:
   - Grass
   - Flowers
   - Enemy
+=======
+  - on_demand
+  - room
+  - office
+  - rium
+  - aqua
+  - reception
+  - hub
+  - hammilton
+  - turing
+  - babbage
+  - toilets
+  - knuth
+  - cray
+  - byron
+  - pascal
+  - administration
+>>>>>>> feature/500 - wip
   layers:
   - Default
   - TransparentFX
