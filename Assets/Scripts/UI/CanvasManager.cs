@@ -120,16 +120,15 @@ public class CanvasManager : MonoBehaviour
         {
             DisplayCanvas();
         }
-
-        if(canvas.enabled && Input.GetKey(KeyCode.Escape))
+        //Debug.Log(canvas.enabled);
+        if(canvas.isActiveAndEnabled && Input.GetKey(KeyCode.Escape))
         {
             ExitCanvas();
         }
 
-        if(canvas.enabled && Input.GetKey(KeyCode.R))
+        if(canvas.isActiveAndEnabled && Input.GetKey(KeyCode.R))
         {
             computer.TryAgain();
-        }
-        
+        }        
     }
 }

@@ -74,7 +74,7 @@ public class Computer : MonoBehaviour
                 }
                 break;
             case 2:
-                if (answer == 0)
+                if (answer == 1)
                 {
                     answers.Add(true);
                 }

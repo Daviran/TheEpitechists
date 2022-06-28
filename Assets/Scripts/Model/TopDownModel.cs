@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TopdownRPG.Core;
 using TopdownRPG.Mechanics;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ namespace TopdownRPG.Model
 
         public Transform spawnPoint;
 
-        public PlayerInstance playerChoice;
+        public PlayerInstance playerChoice = new EdouPlayer();
 
         public PlayerInstance CharacterSelection(string choice)
         {
