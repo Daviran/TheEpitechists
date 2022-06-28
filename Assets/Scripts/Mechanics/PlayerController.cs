@@ -11,6 +11,7 @@ namespace TopdownRPG.Mechanics
         public new Rigidbody2D rigidbody;
         public PlayerInstance player;
         public bool canMove = true;
+        public Animator animator;
         /*public EdouPlayer edouard;
         public DavidPlayer david;*/
 
@@ -31,12 +32,26 @@ namespace TopdownRPG.Mechanics
 
         private void Start()
         {
-            
+           
         }
         void Update()
-        {
+    {
             movement.x = Input.GetAxisRaw("Horizontal");
+            animator.SetFloat("Horizontal", movement.x);
             movement.y = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("Vertical", movement.y);
+
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+            {
+                movement.y = 0;
+                animator.SetFloat("Vertical", movement.y);
+            }
+            else
+            {
+                movement.x = 0;
+                animator.SetFloat("Horizontal", movement.x);
+            }
+            animator.SetFloat("Speed", Mathf.Abs(movement.x + movement.y));
         }
 
         private void FixedUpdate()
