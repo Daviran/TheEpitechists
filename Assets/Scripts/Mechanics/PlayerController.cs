@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TopdownRPG.Gameplay;
+using TopdownRPG.Mechanics;
+using TopdownRPG.Model;
 using UnityEngine;
 
 namespace TopdownRPG.Mechanics
@@ -19,7 +21,7 @@ namespace TopdownRPG.Mechanics
 
         private void Awake()
         {
-            switch(PlayerChoice.playerIndex)
+            /*switch(PlayerChoice.playerIndex)
             {
                 case 0:
                     player = new EdouPlayer();
@@ -27,13 +29,23 @@ namespace TopdownRPG.Mechanics
                 case 1:
                     player = new DavidPlayer();
                     break;
-            }
+            }*/
         }
 
         private void Start()
         {
-           
+            player = GameController.player;
+            player.playerController = this;
         }
+
+        void testBoolEvent()
+        {
+            if (GameController.triggeredEvents["ClocheOut"] == false && Input.GetKey(KeyCode.P))
+            {
+                GameController.triggeredEvents["ClocheOut"] = true;
+            }
+        }
+
         void Update()
     {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -52,6 +64,8 @@ namespace TopdownRPG.Mechanics
                 animator.SetFloat("Horizontal", movement.x);
             }
             animator.SetFloat("Speed", Mathf.Abs(movement.x + movement.y));
+
+            testBoolEvent();
         }
 
         private void FixedUpdate()
