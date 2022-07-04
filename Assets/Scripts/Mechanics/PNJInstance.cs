@@ -61,6 +61,7 @@ public class PNJInstance : MonoBehaviour
         if (collision.tag == "Player")
         {
             pnjSpeaks = true;
+            DialogueManager.Instance.TriggerDialogue(dialogues, this);
         }
     }
 
@@ -69,6 +70,7 @@ public class PNJInstance : MonoBehaviour
         if (collision.tag == "Player")
         {
             pnjSpeaks = false;
+            CanvasManager.Instance.ExitCanvas();
             canvas.enabled = false;
         }
     }

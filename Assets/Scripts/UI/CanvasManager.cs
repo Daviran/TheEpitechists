@@ -4,16 +4,37 @@ using TopdownRPG.Mechanics;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class CanvasManager : MonoBehaviour
 {
+    public static CanvasManager Instance { get; private set; }
+
     public Canvas canvas;
+    Canvas _canvasDialogueInWorld;
+    TextMeshProUGUI _dialogueInWorld;
     public TextMeshProUGUI canvasText;
     public Button reponseA;
     public Button reponseB;
     public Button start;
     public Computer computer;
     public int index = 0;
+
+    void OnEnable()
+    {
+        Instance = this;
+    }
+
+    void OnDisable()
+    {
+        if (Instance == this) Instance = null;
+    }
+
+    internal void FindSpeakingPNJ(PNJInstance pnj)
+    {
+        _canvasDialogueInWorld = pnj.GetComponentInChildren<Canvas>();
+        _dialogueInWorld = _canvasDialogueInWorld.GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     private void Awake()
     {
@@ -37,8 +58,20 @@ public class CanvasManager : MonoBehaviour
         StartCoroutine(DisplayWelcomeText());
     }
 
-    void ExitCanvas()
+    internal IEnumerator TypeSentence(string sentence)
     {
+        _canvasDialogueInWorld.gameObject.SetActive(true);
+        _dialogueInWorld.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            _dialogueInWorld.text += letter;
+            yield return null;
+        }
+    }
+
+    public void ExitCanvas()
+    {
+        _canvasDialogueInWorld.gameObject.SetActive(false);
         StopAllCoroutines();
         canvas.gameObject.SetActive(false);
         start.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
