@@ -71,7 +71,10 @@ public class CanvasManager : MonoBehaviour
 
     public void ExitCanvas()
     {
-        _canvasDialogueInWorld.gameObject.SetActive(false);
+        if(_canvasDialogueInWorld != null)
+        {
+            _canvasDialogueInWorld.gameObject.SetActive(false);
+        }
         StopAllCoroutines();
         canvas.gameObject.SetActive(false);
         start.GetComponentInChildren<TextMeshProUGUI>().text = "Start";

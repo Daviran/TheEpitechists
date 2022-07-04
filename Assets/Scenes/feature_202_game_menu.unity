@@ -425,10 +425,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2f6926a478dc446a21a73400663e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model:
-    virtualCamera: {fileID: 0}
-    player: {fileID: 0}
-    spawnPoint: {fileID: 0}
+  health: 0
+  playerName: 
+  physic: 0
+  techno: 0
+  social: 0
+  position: []
+  scene:
+    m_Handle: 0
 --- !u!1 &828830668
 GameObject:
   m_ObjectHideFlags: 0
