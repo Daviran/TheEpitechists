@@ -8499,7 +8499,6 @@ MonoBehaviour:
   - "Je ne bois pas, c'est mauvais pour la plan\xE8te"
   skin:
   - {fileID: 82879441002606388, guid: 9ef822ba50cf21c4bbb22bc2c4784967, type: 3}
-  animator: {fileID: 0}
   wanderArea: {fileID: 1352648730}
 --- !u!58 &150778379
 CircleCollider2D:
@@ -9175,7 +9174,7 @@ SpriteRenderer:
   m_SortingLayerID: -44025399
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1032275661240795688, guid: 9ef822ba50cf21c4bbb22bc2c4784967, type: 3}
+  m_Sprite: {fileID: -2816903556888224555, guid: 9ef822ba50cf21c4bbb22bc2c4784967, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9214,7 +9213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 1.0598303e-30
-  m_labelHash: -2.1394035e+23
+  m_labelHash: 2.6603494e+32
 --- !u!114 &450448115
 MonoBehaviour:
   m_ObjectHideFlags: 0
