@@ -3,35 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - CanvasDialogue
-  - Coordonnees
-<<<<<<< HEAD
-  - Ordinateur
-  - Stone
-  - Coordonnes
-  - GrassyStone
-  - Grass
-  - Flowers
-  - Enemy
-=======
-  - on_demand
-  - room
-  - office
-  - rium
-  - aqua
-  - reception
-  - hub
-  - hammilton
-  - turing
-  - babbage
-  - toilets
-  - knuth
-  - cray
-  - byron
-  - pascal
-  - administration
->>>>>>> feature/500 - wip
+  tags: []
   layers:
   - Default
   - TransparentFX
