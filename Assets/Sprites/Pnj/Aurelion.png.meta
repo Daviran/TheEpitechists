@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: cbdf4e6468826dd488eb026bc05ecf03
+guid: 005c06cd08b1583419b0491c313506bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 327471207655198707
-    second: Aurelion_0
+      213: 6507513734301014752
+    second: Aurelion (1)_0
   - first:
-      213: 4035179944615805739
-    second: Aurelion_1
+      213: 6501431485820240624
+    second: Aurelion (1)_1
   - first:
-      213: -1873715830129786157
-    second: Aurelion_2
+      213: -4561186809111590354
+    second: Aurelion (1)_2
   - first:
-      213: -8228422669154977906
-    second: Aurelion_3
+      213: -6277701801184703131
+    second: Aurelion (1)_3
   - first:
-      213: -8616729683474129236
-    second: Aurelion_4
+      213: 7873667133044343372
+    second: Aurelion (1)_4
   - first:
-      213: -7937060468621656842
-    second: Aurelion_5
+      213: 2797505249530551931
+    second: Aurelion (1)_5
   - first:
-      213: 8152034444873639935
-    second: Aurelion_6
+      213: -2136826839786375216
+    second: Aurelion (1)_6
   - first:
-      213: 8316515648254200604
-    second: Aurelion_7
+      213: 7767574251281288213
+    second: Aurelion (1)_7
   - first:
-      213: -4070454108040480802
-    second: Aurelion_8
+      213: 60136621784766198
+    second: Aurelion (1)_8
   - first:
-      213: -1059586238514507491
-    second: Aurelion_9
+      213: -3108119151973991312
+    second: Aurelion (1)_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -77,7 +77,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Aurelion_0
+      name: Aurelion (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 95
         width: 32
-        height: 32
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ffc47e04596b8400800000000000000
-      internalID: 327471207655198707
+      spriteID: 0eadcf753455f4a50800000000000000
+      internalID: 6507513734301014752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_1
+      name: Aurelion (1)_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 95
         width: 32
-        height: 32
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b230b93c7c6dff730800000000000000
-      internalID: 4035179944615805739
+      spriteID: 0f20bd38d79b93a50800000000000000
+      internalID: 6501431485820240624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_2
+      name: Aurelion (1)_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 95
         width: 32
-        height: 32
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,62 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2861f31693ff5e0800000000000000
-      internalID: -1873715830129786157
+      spriteID: e2ac4b863c863b0c0800000000000000
+      internalID: -4561186809111590354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e87fe3fad25cecd80800000000000000
-      internalID: -8228422669154977906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Aurelion_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caed5fa910a3b6880800000000000000
-      internalID: -8616729683474129236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Aurelion_5
+      name: Aurelion (1)_3
       rect:
         serializedVersion: 2
         x: 64
         y: 64
         width: 32
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,14 +199,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fcb20f5e85e9d190800000000000000
-      internalID: -7937060468621656842
+      spriteID: 56d4e86f87f11e8a0800000000000000
+      internalID: -6277701801184703131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_6
+      name: Aurelion (1)_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42c6c08a82e44d60800000000000000
+      internalID: 7873667133044343372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aurelion (1)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e1f8fd33cb2d620800000000000000
+      internalID: 2797505249530551931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aurelion (1)_6
       rect:
         serializedVersion: 2
         x: 0
@@ -262,14 +262,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff72173e228d12170800000000000000
-      internalID: 8152034444873639935
+      spriteID: 0d733048f477852e0800000000000000
+      internalID: -2136826839786375216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_7
+      name: Aurelion (1)_7
       rect:
         serializedVersion: 2
         x: 32
@@ -283,14 +283,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1b4b275be23a6370800000000000000
-      internalID: 8316515648254200604
+      spriteID: 51c871e80a7fbcb60800000000000000
+      internalID: 7767574251281288213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_8
+      name: Aurelion (1)_8
       rect:
         serializedVersion: 2
         x: 64
@@ -304,14 +304,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed7b7bf0e87d287c0800000000000000
-      internalID: -4070454108040480802
+      spriteID: 6f6197b50f5a5d000800000000000000
+      internalID: 60136621784766198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aurelion_9
+      name: Aurelion (1)_9
       rect:
         serializedVersion: 2
         x: 0
@@ -325,8 +325,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1153741ee79b41f0800000000000000
-      internalID: -1059586238514507491
+      spriteID: 07c700b491ebdd4d0800000000000000
+      internalID: -3108119151973991312
       vertices: []
       indices: 
       edges: []
@@ -334,7 +334,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 84ba74b765a9a5d4f9e009b2b83e1c66
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

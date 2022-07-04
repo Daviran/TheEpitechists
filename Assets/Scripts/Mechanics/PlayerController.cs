@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TopdownRPG.Gameplay;
+using TopdownRPG.Mechanics;
+using TopdownRPG.Model;
 using UnityEngine;
 
 namespace TopdownRPG.Mechanics
@@ -11,6 +13,7 @@ namespace TopdownRPG.Mechanics
         public new Rigidbody2D rigidbody;
         public PlayerInstance player;
         public bool canMove = true;
+        public Animator animator;
         /*public EdouPlayer edouard;
         public DavidPlayer david;*/
 
@@ -18,7 +21,7 @@ namespace TopdownRPG.Mechanics
 
         private void Awake()
         {
-            switch(PlayerChoice.playerIndex)
+            /*switch(PlayerChoice.playerIndex)
             {
                 case 0:
                     player = new EdouPlayer();
@@ -26,17 +29,43 @@ namespace TopdownRPG.Mechanics
                 case 1:
                     player = new DavidPlayer();
                     break;
-            }
+            }*/
         }
 
         private void Start()
         {
-            
+            player = GameController.player;
+            player.playerController = this;
         }
-        void Update()
+
+        void testBoolEvent()
         {
+            if (GameController.triggeredEvents["ClocheOut"] == false && Input.GetKey(KeyCode.P))
+            {
+                GameController.triggeredEvents["ClocheOut"] = true;
+            }
+        }
+
+        void Update()
+    {
             movement.x = Input.GetAxisRaw("Horizontal");
+            animator.SetFloat("Horizontal", movement.x);
             movement.y = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("Vertical", movement.y);
+
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+            {
+                movement.y = 0;
+                animator.SetFloat("Vertical", movement.y);
+            }
+            else
+            {
+                movement.x = 0;
+                animator.SetFloat("Horizontal", movement.x);
+            }
+            animator.SetFloat("Speed", Mathf.Abs(movement.x + movement.y));
+
+            testBoolEvent();
         }
 
         private void FixedUpdate()
