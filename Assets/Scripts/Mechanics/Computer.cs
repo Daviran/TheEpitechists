@@ -31,7 +31,7 @@ public class Computer : MonoBehaviour
     };
     public List<bool> answers = new List<bool>();
     public bool playerInRange = false;
-    public GameObject player;
+    GameObject player;
     
 
     void Start()

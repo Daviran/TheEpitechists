@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
     {
 
     }
-void OnDisable()
+    void OnDisable()
     {
         if (Instance == this) Instance = null;
     }

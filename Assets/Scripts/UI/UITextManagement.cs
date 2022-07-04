@@ -20,6 +20,7 @@ public class UITextManagement : MonoBehaviour
     LoadLevel loadLevel;
     Collider2D test;
     FabienneIntro fab;
+    public bool introCin = false;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class UITextManagement : MonoBehaviour
                 Debug.Log(introText.Length);
                 if (index == introText.Length)
                 {
+                    introCin = true;
                     StartCoroutine(StartCinematique());
                 }
             }
@@ -75,6 +77,9 @@ public class UITextManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayDialogue();
+        if(!introCin)
+        {
+            DisplayDialogue();
+        }
     }
 }
