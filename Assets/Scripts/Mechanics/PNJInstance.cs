@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PNJInstance : MonoBehaviour
 {
     public string[] dialogues = { "Bonjour", "Au revoir", "Il fait beau non ?", "LoL > la vie", "Je ne bois pas, c'est mauvais pour la planète" };
-    public Sprite[] skin = new Sprite[10];
+    public Sprite[] skin = new Sprite[1];
     int skinIndex;
     internal int controllerIndex = -1;
     SpriteRenderer chosenSkin;
@@ -19,6 +19,7 @@ public class PNJInstance : MonoBehaviour
     AudioSource typeSound;
     private bool pnjSpeaks = false;
     private Queue<string> sentences;
+    Animator animator;
 
     Vector3 directionVector;
     Transform myTransform;
@@ -44,8 +45,8 @@ public class PNJInstance : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myTransform = GetComponent<Transform>();
         chosenSkin = GetComponent<SpriteRenderer>();
-        skinIndex = UnityEngine.Random.Range(0, 9);
-        chosenSkin.sprite = skin[skinIndex];
+        // skinIndex = UnityEngine.Random.Range(0, 0);
+        chosenSkin.sprite = skin[0];
         canvas = GetComponentInChildren<Canvas>();
         boxPosition = canvas.GetComponentInChildren<RectTransform>();
         dialogueBox = boxPosition.GetComponentInChildren<RectTransform>();
@@ -53,7 +54,7 @@ public class PNJInstance : MonoBehaviour
         typeSound.enabled = false;
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
         sentences = new Queue<string>();
-
+        animator = GetComponent<Animator>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -170,6 +171,7 @@ public class PNJInstance : MonoBehaviour
     void Wander()
     {
         Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
+
         if(wanderArea.bounds.Contains(temp))
         {
             myRigidBody.MovePosition(temp);
@@ -187,20 +189,27 @@ public class PNJInstance : MonoBehaviour
     void ChangeDirection()
     {
         int direction = UnityEngine.Random.Range(0, 4);
-
         switch(direction)
         {
             case 0:
                 directionVector = Vector3.right;
+                animator.SetFloat("Horizontal", 1);
+                animator.SetFloat("Vertical", 0);
                 break;
             case 1:
                 directionVector = Vector3.up;
+                animator.SetFloat("Horizontal", 0);
+                animator.SetFloat("Vertical", 1);
                 break;
             case 2:
                 directionVector = Vector3.down;
+                animator.SetFloat("Horizontal", 0);
+                animator.SetFloat("Vertical", -1);
                 break;
             case 3:
                 directionVector = Vector3.left;
+                animator.SetFloat("Horizontal", -1);
+                animator.SetFloat("Vertical", 0);
                 break;
             default:
                 break;
@@ -237,10 +246,15 @@ public class PNJInstance : MonoBehaviour
             moveTimeSeconds = moveTime;
             ChangeDirection();
         }
-        if(!pnjSpeaks)
+        if (!pnjSpeaks)
         {
             Wander();
+            animator.SetFloat("Speed", 1);
         }
-        TriggerDialogue();
+        else
+        {
+            TriggerDialogue();
+            animator.SetFloat("Speed", 0);
+        }
     }
 }
