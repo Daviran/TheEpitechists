@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - CanvasDialogue
-  - Coordonnees
-  - Ordinateur
-  - Stone
-  - Coordonnes
-  - GrassyStone
-  - Grass
-  - Flowers
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
