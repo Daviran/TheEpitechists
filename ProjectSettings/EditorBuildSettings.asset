@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/feature_202_game_menu.unity
     guid: 4a983a4368be5314b9ec2fef28b83c58
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/feature_203_cinm_intro.unity
     guid: f0039b08deef3ea45bb993982ca420c9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/feature_201_npcMovement.unity
     guid: cb3f3226178ae114bba2e7824595eb06
+  - enabled: 1
+    path: Assets/Scenes/final_scenes/characterChoice.unity
+    guid: d5d3d070da1b412419d6f441a5b0ff32
+  - enabled: 1
+    path: Assets/Scenes/final_scenes/finalScene.unity
+    guid: 00db2aa25c925d34087f86227ec6b264
   m_configObjects: {}

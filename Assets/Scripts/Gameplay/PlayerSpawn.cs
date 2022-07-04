@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TopdownRPG.Core;
 using TopdownRPG.Model;
 using UnityEngine;
 
@@ -10,10 +9,16 @@ namespace TopdownRPG.Gameplay
     {
         public GameObject[] playerList;
         public GameObject spawnPoint;
+        int charaIndex;
         public void SpawnCharacter()
         {
-            int index = PlayerChoice.playerIndex;
-            Instantiate(playerList[index], spawnPoint.transform.position, Quaternion.identity);
+            Instantiate(playerList[charaIndex], spawnPoint.transform.position, Quaternion.identity);
+        }
+
+        private void Awake()
+        {
+            charaIndex = GameController.charaIndex;
+            Debug.Log("ICI " + charaIndex);
         }
 
         private void Start()
