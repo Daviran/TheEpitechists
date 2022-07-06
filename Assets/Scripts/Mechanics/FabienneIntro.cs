@@ -61,7 +61,11 @@ public class FabienneIntro : MonoBehaviour
         foreach (char letter in damocles)
         {
             text.text += letter;
+<<<<<<< HEAD
             yield return new WaitForSeconds(0.07f);
+=======
+            yield return new WaitForSeconds(0.04f);
+>>>>>>> 78d7f4d98115cc9ce07163cfcb965ffcbf541a78
         }
 
         racket = true;
