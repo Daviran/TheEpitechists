@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Moves : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private Rigidbody2D myRB;
     [SerializeField]
     private float speed;
     public Animator animator;
     public Vector3 movement;
+
+    Dictionary<string, object> parameters = new Dictionary<string, object>()
+{
+    { "fabulousString", "hello there" },
+    { "sparklingInt", 1337 },
+    { "spectacularFloat", 0.451f },
+    { "peculiarBool", true },
+};
 
     void Awake()
     {
@@ -32,11 +40,11 @@ public class Moves : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
-            animator.SetBool("Moving", true);
+            animator.SetBool("IsMobile", true);
         } else
         {
             animator.SetFloat("Speed", movement.sqrMagnitude);
-            animator.SetBool("Moving", false);
+            animator.SetBool("IsMobile", false);
         }
     }
 
@@ -48,12 +56,13 @@ public class Moves : MonoBehaviour
                 (0 != Input.GetAxisRaw("Vertical") && 0 == Input.GetAxisRaw("Horizontal"))
                 )
         {
+            Debug.Log(Time.deltaTime);
             myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed * Time.deltaTime;
-
         }
 
         if ((0 == Input.GetAxisRaw("Horizontal") && 0 == Input.GetAxisRaw("Vertical")))
         {
+            Debug.Log(Time.deltaTime);
             myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed * Time.deltaTime;
         }
     }

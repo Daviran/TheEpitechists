@@ -85655,7 +85655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerList:
   - {fileID: 4930527447568370325, guid: 722294f88b4fd024aa46d84f958ea00f, type: 3}
-  - {fileID: 6776622917925862287, guid: a80fdf5a52913354f94d073ba8093f7b, type: 3}
+  - {fileID: 376279864675624509, guid: ed7ba30b34b24294bb5eb454d100d76b, type: 3}
   spawnPoint: {fileID: 820967734}
 --- !u!4 &1036261960
 Transform:
@@ -87696,9 +87696,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 2935910311639852774, guid: 65c27e5056acd6f4f9c17d092c4f4743, type: 3}
       propertyPath: m_SortingLayerID
       value: 1809673951
       objectReference: {fileID: 0}
+=======
+>>>>>>> 78d7f4d98115cc9ce07163cfcb965ffcbf541a78
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c27e5056acd6f4f9c17d092c4f4743, type: 3}
