@@ -150,10 +150,22 @@ public class Policien : MonoBehaviour
 
     void Move()
     {
-        Debug.Log(transform.position);
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", -1);
+        animator.SetFloat("Speed", 1);
         rb.MovePosition(transform.position + Vector3.down * speed * Time.deltaTime);
-        if (transform.position.y <= 47) rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
-        if (transform.position.x <= - 38) victoryMove = false;
+        if (transform.position.y <= 47)
+        {
+            animator.SetFloat("Horizontal", -1);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Speed", 1);
+            rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
+        }
+        if (transform.position.x <= -38)
+        {
+            animator.SetFloat("Speed", 0);
+            victoryMove = false;
+        }
     }
 
     void ChangeDirection()

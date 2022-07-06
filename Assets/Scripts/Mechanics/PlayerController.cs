@@ -19,7 +19,7 @@ namespace TopdownRPG.Mechanics
 
         Vector2 movement;
 
-        private void Awake()
+        void Awake()
         {
             /*switch(PlayerChoice.playerIndex)
             {
@@ -32,7 +32,7 @@ namespace TopdownRPG.Mechanics
             }*/
         }
 
-        private void Start()
+        void Start()
         {
             player = GameController.player;
             player.playerController = this;

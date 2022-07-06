@@ -38,10 +38,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        if (player == null)
-        {
-            player = new EdouPlayer();
-        }
+
     }
 
     private void Start()
@@ -60,6 +57,6 @@ public class GameController : MonoBehaviour
 
     void Tick()
     {
-        Debug.Log(charaIndex);
+
     }
 }
