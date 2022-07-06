@@ -13,6 +13,12 @@ TagManager:
   - Grass
   - Flowers
   - Enemy
+  - Fefe
+  - Cloche
+  - Sebby
+  - Morales
+  - Cape
+  - Tonneau
   layers:
   - Default
   - TransparentFX
@@ -52,4 +58,7 @@ TagManager:
     locked: 0
   - name: Activable
     uniqueID: 2724120179
+    locked: 0
+  - name: Dialogue
+    uniqueID: 1809673951
     locked: 0

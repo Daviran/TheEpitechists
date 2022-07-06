@@ -30,8 +30,9 @@ public class CanvasManager : MonoBehaviour
         if (Instance == this) Instance = null;
     }
 
-    internal void FindSpeakingPNJ(PNJInstance pnj)
+    internal void FindSpeakingPNJ(PNJ pnj)
     {
+        Debug.Log("COUCOU");
         _canvasDialogueInWorld = pnj.GetComponentInChildren<Canvas>();
         _dialogueInWorld = _canvasDialogueInWorld.GetComponentInChildren<TextMeshProUGUI>();
     }

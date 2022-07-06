@@ -365,7 +365,10 @@ GameObject:
   - component: {fileID: 1880343820088106397}
   - component: {fileID: 3169128903929792431}
   - component: {fileID: 4239022788318023194}
-  - component: {fileID: -4324906794575704267}
+  - component: {fileID: 4536086928488839501}
+  - component: {fileID: 5720772924194638621}
+  - component: {fileID: 7481504067642866118}
+  - component: {fileID: 9130442410584554378}
   m_Layer: 6
   m_Name: truePNJ
   m_TagString: Untagged
@@ -428,15 +431,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1032275661240795688, guid: 9ef822ba50cf21c4bbb22bc2c4784967, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.75}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1880343820088106397
@@ -452,18 +455,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00343588, y: -0.32583523}
+  m_Offset: {x: -0.00343588, y: -0.20882767}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.75}
-    newSize: {x: 0.5, y: 0.75}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.30655605, y: 0.082730055}
+  m_Size: {x: 0.30655605, y: 0.082730174}
   m_EdgeRadius: 0
 --- !u!50 &3169128903929792431
 Rigidbody2D:
@@ -502,7 +505,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.71
---- !u!114 &-4324906794575704267
+--- !u!114 &4536086928488839501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735752972641501541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: 416803b88b31d8543af46f1657194437, type: 2}
+--- !u!114 &5720772924194638621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735752972641501541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 1.0598303e-30
+  m_labelHash: -2.1394035e+23
+--- !u!114 &7481504067642866118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -515,23 +545,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - Bonjour
-  - Au revoir
-  - Il fait beau non ?
-  - LoL > la vie
-  - "Je ne bois pas, c'est mauvais pour la plan\xE8te"
-  skin:
-  - {fileID: 82879441002606388, guid: 9ef822ba50cf21c4bbb22bc2c4784967, type: 3}
-  - {fileID: -5440587081502111396, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
-  - {fileID: 9061434975635026030, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
-  - {fileID: 4384716447578655576, guid: 2cca5e0862643504c886d1e48eda1a22, type: 3}
-  - {fileID: 4247413756430221506, guid: ab407b051294a8d4eb24f481fcd8d48e, type: 3}
-  - {fileID: -7664637748520708647, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
-  - {fileID: -7393682075272177818, guid: 401a9102e33da964fac86e8005685915, type: 3}
-  - {fileID: 216784559810282901, guid: b100e8f65e1c7c74eb21c799f8fa9a1c, type: 3}
-  - {fileID: 8899927792990788327, guid: 1c0c65fc59c76394f9b646b2d99c8a4b, type: 3}
-  - {fileID: -1873715830129786157, guid: cbdf4e6468826dd488eb026bc05ecf03, type: 3}
+  - "Quand 42 veut du bien \xE0 un homme, il vient habiter son code."
+  - 42 ne saurait faire de back sans front.
+  - "42 pr\xE9f\xE8re Linux."
+  - "Il n\u2019est que 42 qu\u2019on puisse aimer sans bug."
+  - "Si 42 ne fait l\u2019API, il n\u2019est de relation back - front qui vaille."
+  - "La compile nous vient de 42, les bugs de nous - m\xEAmes."
+  - "Nul ne va \xE0 42 sans passer par Epitech."
+  - "Le code est fait pour l\u2019Homme, et l\u2019Homme est fait pour 42."
+  - Louez 42 car il est grand !
+  - "42 sera sans piti\xE9 pour les tricheurs."
+  - Prends garde de ne pas tricher, ou 42 te jettera dans les flammes de la doc Java.
+  - "42 est lent \xE0 la col\xE8re, mais celle - ci est implacable."
+  - Que 42 terrasse ses ennemis !
+  - Que tous les langages soient unis sous 42 !
+  - "un jour, 42 a compt\xE9 jusque l\u2019infini \u2026 deux fois."
+  - 42 est puissante dans ta famille Luke
   wanderArea: {fileID: 0}
+--- !u!95 &9130442410584554378
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735752972641501541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6d3a7e6e43caad4db6773ab33df5371, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5867952740389889374
 GameObject:
   m_ObjectHideFlags: 0

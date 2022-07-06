@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TopdownRPG.Mechanics;
 using TMPro;
+using System;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ public class Computer : MonoBehaviour
     public List<bool> answers = new List<bool>();
     public bool playerInRange = false;
     GameObject player;
+    public static event Action OnVictory;
+    public static event Action OnDefeat;
     
 
     void Start()
@@ -101,6 +104,13 @@ public class Computer : MonoBehaviour
         foreach (bool answ in answers)
         {
             if (answ) result++;
+        }
+        if(result >= 2)
+        {
+            OnVictory?.Invoke();
+        } else
+        {
+            OnDefeat?.Invoke();
         }
         StartCoroutine(canvasManager.DisplayResults(result));
     }
