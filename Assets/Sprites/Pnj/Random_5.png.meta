@@ -60,7 +60,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -69,7 +68,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -83,7 +82,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -389,19 +388,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Random_5_10: -5941497988231397150
-      Random_5_2: 6055522026915995814
-      Random_5_7: -1760381192370578710
-      Random_5_11: 1308624234435748159
-      Random_5_3: 4247413756430221506
-      Random_5_9: -3470188542415586791
-      Random_5_0: -5081425768415023702
-      Random_5_8: 5324947451752457758
-      Random_5_1: -9073989636822494971
-      Random_5_6: 1598261096471763785
-      Random_5_4: -1220759024453943065
-      Random_5_5: -6566109192380548324
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

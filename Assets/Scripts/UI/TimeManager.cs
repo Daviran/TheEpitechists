@@ -7,15 +7,16 @@ public class TimeManager : MonoBehaviour
 {
     public static Action OnMinuteChanged;
     public static Action OnHourChanged;
-    public static Action LunchTime;
+    public static event Action LunchTime;
+    public static event Action BackHomeTime;
 
     public static int Minute { get; private set; }
     public static int Hour { get; private set; }
+    public static List<string> Week = new List<string>() { "Mardi", "Mercredi", "Jeudi", "Vendredi" };
 
-    private float minuteToRealTime = 1f;
+    private float minuteToRealTime = 0.5f;
     private float timer;
 
-    int getTime = 0;
     void Start()
     {
         Minute = 30;
@@ -35,14 +36,18 @@ public class TimeManager : MonoBehaviour
             if(Minute >= 60)
             {
                 Hour++;
-                getTime++;
                 Minute = 0;
                 OnHourChanged?.Invoke();
             }
 
-            if(getTime == 3)
+            if(Hour == 12 && Minute == 0)
             {
                 LunchTime?.Invoke();
+            }
+
+            if(Hour == 17 && Minute == 30)
+            {
+                BackHomeTime?.Invoke();
             }
 
             timer = minuteToRealTime;

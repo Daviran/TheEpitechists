@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TopdownRPG.Mechanics;
 using TopdownRPG.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,12 @@ public class FabienneIntro : MonoBehaviour
 {
     float xPos;
     float yPos;
-    public float speed = 5;
+    public float speed = 7;
     public Image backGround;
     public Image displayBox;
     public Text text;
     public Canvas canvas;
+    public TextMeshProUGUI dayOne;
     Rigidbody2D rb;
     PlayerController player;
     public GameObject spawnPiscine;
@@ -53,12 +55,13 @@ public class FabienneIntro : MonoBehaviour
     {
         canvas.gameObject.SetActive(true);
         backGround.gameObject.SetActive(false);
+        dayOne.gameObject.SetActive(false);
         displayBox.gameObject.SetActive(true);
         text.text = "";
         foreach (char letter in damocles)
         {
             text.text += letter;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.04f);
         }
 
         racket = true;

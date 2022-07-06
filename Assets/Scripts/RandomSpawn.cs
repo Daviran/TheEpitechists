@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RandomSpawn : MonoBehaviour
 {
-    public PNJInstance[] PNJLists;
+    public PNJ[] PNJLists;
     Vector3 spawn;
     float x = 0;
     float y = 0;
     float z = 0;
     void Start()
     {
-        foreach (PNJInstance pnj in PNJLists)
+        foreach (PNJ pnj in PNJLists)
         {
             x = Random.Range(-9, 9);
             y = Random.Range(-4, 4);

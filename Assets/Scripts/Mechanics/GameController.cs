@@ -36,6 +36,14 @@ public class GameController : MonoBehaviour
         Instance = this;
     }
 
+    void Awake()
+    {
+        if (player == null)
+        {
+            player = new EdouPlayer();
+        }
+    }
+
     private void Start()
     {
 

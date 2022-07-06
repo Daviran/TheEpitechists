@@ -18,6 +18,10 @@ namespace TopdownRPG.Gameplay
         private void Awake()
         {
             charaIndex = GameController.charaIndex;
+            if(charaIndex != 0 || charaIndex != 1)
+            {
+                charaIndex = 0;
+            }
             Debug.Log("ICI " + charaIndex);
         }
 
