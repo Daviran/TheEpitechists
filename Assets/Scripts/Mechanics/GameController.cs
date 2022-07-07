@@ -36,6 +36,11 @@ public class GameController : MonoBehaviour
         Instance = this;
     }
 
+    void Awake()
+    {
+
+    }
+
     private void Start()
     {
 
@@ -52,6 +57,6 @@ public class GameController : MonoBehaviour
 
     void Tick()
     {
-        Debug.Log(charaIndex);
+
     }
 }

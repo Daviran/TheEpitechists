@@ -6,11 +6,12 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
-    public Queue<string> sentences;
+    public Queue<string> sentences = new Queue<string>();
 
     void OnEnable()
     {
         Instance = this;
+        Debug.Log(Instance);
     }
 
     void OnDisable()
@@ -18,13 +19,14 @@ public class DialogueManager : MonoBehaviour
         if (Instance == this) Instance = null;
     }
 
-    public void TriggerDialogue(string[] dialogue, PNJInstance pnj)
+    public void TriggerDialogue(Dialogue dialogue, PNJ pnj)
     {
         // AudioManager.dialogue.PlaySound();
-        foreach (string sentence in dialogue)
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
+        Debug.Log(pnj);
         CanvasManager.Instance.FindSpeakingPNJ(pnj);
         DisplayNextSentence();
     }

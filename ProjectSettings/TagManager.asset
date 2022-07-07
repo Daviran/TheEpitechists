@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CanvasDialogue
+  - Coordonnees
+  - Ordinateur
+  - Stone
+  - Coordonnes
+  - GrassyStone
+  - Grass
+  - Flowers
+  - Enemy
+  - Fefe
+  - Cloche
+  - Sebby
+  - Morales
+  - Cape
+  - Tonneau
+  - PNJ
   layers:
   - Default
   - TransparentFX
@@ -41,6 +57,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Chair_Front
+    uniqueID: 3471622441
+    locked: 0
+  - name: PNJ
+    uniqueID: 706220261
+    locked: 0
+  - name: Player
+    uniqueID: 2408093749
+    locked: 0
+  - name: Chairs
+    uniqueID: 214117849
+    locked: 0
   - name: Activable
     uniqueID: 2724120179
+    locked: 0
+  - name: Dialogue
+    uniqueID: 1809673951
     locked: 0

@@ -6,18 +6,34 @@ using UnityEngine.UI;
 
 public class PNJInstance : MonoBehaviour
 {
-    public string[] dialogues = { "Bonjour", "Au revoir", "Il fait beau non ?", "LoL > la vie", "Je ne bois pas, c'est mauvais pour la planète" };
-    public Sprite[] skin = new Sprite[1];
-    int skinIndex;
+    public string[] dialogues = {
+            "Quand 42 veut du bien à un homme, il vient habiter son code.",
+            "42 ne saurait faire de back sans front.",
+            "42 préfère Linux.",
+            "Il n’est que 42 qu’on puisse aimer sans bug.",
+            "Si 42 ne fait l’API, il n’est de relation back - front qui vaille.",
+            "La compile nous vient de 42, les bugs de nous - mêmes.",
+            "Nul ne va à 42 sans passer par Epitech.",
+            "Le code est fait pour l’Homme, et l’Homme est fait pour 42.",
+            "Louez 42 car il est grand !",
+            "42 sera sans pitié pour les tricheurs.",
+            "Prends garde de ne pas tricher, ou 42 te jettera dans les flammes de la doc Java.",
+            "42 est lent à la colère, mais celle - ci est implacable.",
+            "Que 42 terrasse ses ennemis !",
+            "Que tous les langages soient unis sous 42 !",
+            "un jour, 42 a compté jusque l’infini … deux fois.",
+            "42 est puissante dans ta famille Luke"
+            };
+   
     internal int controllerIndex = -1;
-    SpriteRenderer chosenSkin;
     internal PNJController pnjController;
     Canvas canvas;
     RectTransform boxPosition;
     RectTransform dialogueBox;
     Text dialogueText;
     AudioSource typeSound;
-    private bool pnjSpeaks = false;
+    bool pnjSpeaks = false;
+    bool isSit = false;
     private Queue<string> sentences;
     Animator animator;
 
@@ -28,13 +44,6 @@ public class PNJInstance : MonoBehaviour
 
     public Collider2D wanderArea;
 
-    /*public Collider2D[] coords;
-    int coordsIndex;
-    public Collider2D[] rooms;
-    public Collider2D presentRoom;
-    bool wandering = true;
-    bool travelingDelay = false;*/
-
     float moveTimeSeconds;
     float moveTime = 5;
 
@@ -44,9 +53,6 @@ public class PNJInstance : MonoBehaviour
         moveTimeSeconds = moveTime;
         myRigidBody = GetComponent<Rigidbody2D>();
         myTransform = GetComponent<Transform>();
-        chosenSkin = GetComponent<SpriteRenderer>();
-        // skinIndex = UnityEngine.Random.Range(0, 0);
-        chosenSkin.sprite = skin[0];
         canvas = GetComponentInChildren<Canvas>();
         boxPosition = canvas.GetComponentInChildren<RectTransform>();
         dialogueBox = boxPosition.GetComponentInChildren<RectTransform>();
@@ -62,7 +68,7 @@ public class PNJInstance : MonoBehaviour
         if (collision.tag == "Player")
         {
             pnjSpeaks = true;
-            DialogueManager.Instance.TriggerDialogue(dialogues, this);
+            TriggerDialogue();
         }
     }
 
@@ -71,14 +77,19 @@ public class PNJInstance : MonoBehaviour
         if (collision.tag == "Player")
         {
             pnjSpeaks = false;
-            CanvasManager.Instance.ExitCanvas();
             canvas.enabled = false;
         }
     }
 
+    public void SetSit(bool sit)
+    {
+        isSit = sit;
+        StartCoroutine(GetUpFromChair());
+    }
+
     private void TriggerDialogue()
     {
-        if(pnjSpeaks && Input.GetKeyDown(KeyCode.E))
+        if (pnjSpeaks && Input.GetKeyDown(KeyCode.E))
         {
             typeSound.enabled = true;
             typeSound.Play();
@@ -102,7 +113,6 @@ public class PNJInstance : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        //typeSound.enabled = false;
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -117,79 +127,24 @@ public class PNJInstance : MonoBehaviour
 
     }
 
-    /*private void Move()
-    {
-        Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
-        if(wandering)
-        {
-            foreach(Collider2D room in rooms)
-            {
-                if(room.bounds.Contains(myTransform.position)) {
-                    presentRoom = room;
-                    Debug.Log(presentRoom);
-                }
-            }
-
-            Debug.Log(presentRoom.bounds.Contains(temp));
-
-            if (presentRoom.bounds.Contains(temp))
-            {
-                myRigidBody.MovePosition(temp);
-            } else
-            {
-                ChangeDirection();
-            }
-        } else
-        {
-            Debug.Log("WANDERING " + wandering);
-            float step = speed * Time.deltaTime;
-            int trueIndex = coordsIndex + 1;
-            if (trueIndex > (coords.Length -1)) trueIndex = 0;
-            myTransform.position = Vector3.MoveTowards(myTransform.position, coords[trueIndex].transform.position, step);
-            if (coords[trueIndex].bounds.Contains(myTransform.position) && hasard == 0)
-            {
-                Debug.Log("HASARD " + hasard);
-                hasard++;
-                if (hasard > 3) hasard = 0;
-                travelingDelay = true;
-                wandering = true;
-                StopAllCoroutines();
-                StartCoroutine(SetTravelingDelay());
-            } else if(coords[trueIndex].bounds.Contains(myTransform.position) && hasard != 0)
-            {
-                myTransform.position = Vector3.MoveTowards(myTransform.position, coords[trueIndex + 1].transform.position, step);
-                hasard++;
-                if (hasard > 3) hasard = 0;
-                wandering = true;
-                travelingDelay = true;
-                StopAllCoroutines();
-                StartCoroutine(SetTravelingDelay());
-            }
-        }
-    }*/
-
     void Wander()
     {
         Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
 
-        if(wanderArea.bounds.Contains(temp))
+        if (wanderArea.bounds.Contains(temp))
         {
             myRigidBody.MovePosition(temp);
-        } else
+        }
+        else
         {
             ChangeDirection();
         }
     }
 
-    void Travel()
-    {
-
-    }
-
     void ChangeDirection()
     {
         int direction = UnityEngine.Random.Range(0, 4);
-        switch(direction)
+        switch (direction)
         {
             case 0:
                 directionVector = Vector3.right;
@@ -221,32 +176,27 @@ public class PNJInstance : MonoBehaviour
         Vector3 temp = directionVector;
         ChangeDirection();
         int loops = 0;
-        while(temp == directionVector && loops < 100)
+        while (temp == directionVector && loops < 100)
         {
             loops++;
             ChangeDirection();
         }
     }
 
-
-    void PNJPath()
-    {
-   
-    }
     void Start()
     {
-        ChangeDirection();   
+        ChangeDirection();
     }
 
     void Update()
     {
         moveTimeSeconds -= Time.deltaTime;
-        if(moveTimeSeconds <= 0)
+        if (moveTimeSeconds <= 0)
         {
             moveTimeSeconds = moveTime;
             ChangeDirection();
         }
-        if (!pnjSpeaks)
+        if (!pnjSpeaks && !isSit)
         {
             Wander();
             animator.SetFloat("Speed", 1);
@@ -256,5 +206,12 @@ public class PNJInstance : MonoBehaviour
             TriggerDialogue();
             animator.SetFloat("Speed", 0);
         }
+    }
+
+    IEnumerator GetUpFromChair()
+    {
+        yield return new WaitForSeconds(10);
+        SetSit(false);
+        animator.SetBool("Sit", false);
     }
 }

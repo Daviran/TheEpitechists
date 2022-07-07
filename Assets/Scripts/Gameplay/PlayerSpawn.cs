@@ -18,7 +18,6 @@ namespace TopdownRPG.Gameplay
         private void Awake()
         {
             charaIndex = GameController.charaIndex;
-            Debug.Log("ICI " + charaIndex);
         }
 
         private void Start()
