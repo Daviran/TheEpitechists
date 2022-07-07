@@ -32,7 +32,8 @@ public class PNJInstance : MonoBehaviour
     RectTransform dialogueBox;
     Text dialogueText;
     AudioSource typeSound;
-    private bool pnjSpeaks = false;
+    bool pnjSpeaks = false;
+    bool isSit = false;
     private Queue<string> sentences;
     Animator animator;
 
@@ -80,6 +81,12 @@ public class PNJInstance : MonoBehaviour
         }
     }
 
+    public void SetSit(bool sit)
+    {
+        isSit = sit;
+        StartCoroutine(GetUpFromChair());
+    }
+
     private void TriggerDialogue()
     {
         if (pnjSpeaks && Input.GetKeyDown(KeyCode.E))
@@ -106,7 +113,6 @@ public class PNJInstance : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        //typeSound.enabled = false;
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -133,11 +139,6 @@ public class PNJInstance : MonoBehaviour
         {
             ChangeDirection();
         }
-    }
-
-    void Travel()
-    {
-
     }
 
     void ChangeDirection()
@@ -182,11 +183,6 @@ public class PNJInstance : MonoBehaviour
         }
     }
 
-
-    void PNJPath()
-    {
-
-    }
     void Start()
     {
         ChangeDirection();
@@ -200,7 +196,7 @@ public class PNJInstance : MonoBehaviour
             moveTimeSeconds = moveTime;
             ChangeDirection();
         }
-        if (!pnjSpeaks)
+        if (!pnjSpeaks && !isSit)
         {
             Wander();
             animator.SetFloat("Speed", 1);
@@ -210,5 +206,12 @@ public class PNJInstance : MonoBehaviour
             TriggerDialogue();
             animator.SetFloat("Speed", 0);
         }
+    }
+
+    IEnumerator GetUpFromChair()
+    {
+        yield return new WaitForSeconds(10);
+        SetSit(false);
+        animator.SetBool("Sit", false);
     }
 }

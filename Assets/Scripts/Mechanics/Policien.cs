@@ -99,7 +99,10 @@ public class Policien : MonoBehaviour
         {
             pnjSpeaks = false;
             canvas.enabled = false;
-            sentences.Clear();
+            if(sentences != null)
+            {
+                sentences.Clear();
+            }
         }
     }
 

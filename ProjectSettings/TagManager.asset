@@ -19,6 +19,7 @@ TagManager:
   - Morales
   - Cape
   - Tonneau
+  - PNJ
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Chair_Front
+    uniqueID: 3471622441
+    locked: 0
+  - name: PNJ
+    uniqueID: 706220261
+    locked: 0
+  - name: Player
+    uniqueID: 2408093749
+    locked: 0
+  - name: Chairs
+    uniqueID: 214117849
     locked: 0
   - name: Activable
     uniqueID: 2724120179
