@@ -1,10 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TopdownRPG.Mechanics;
 using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine;
+
 public class Computer : MonoBehaviour
 {
     public CanvasManager canvasManager;
@@ -24,8 +25,8 @@ public class Computer : MonoBehaviour
         },
         new Dictionary<string, string>
         {
-            {"Question" , "Donnez la valeur de x: \n x = \"\"; y = 42; z = \"est notre Dieu à tous\"; \n x == y + z; " },
-            { "ReponseA", "42est notre Dieu à tous"},
+            {"Question" , "Donnez la valeur de x: \n x = \"\"; y = 42; z = \"est notre Dieu ï¿½ tous\"; \n x == y + z; " },
+            { "ReponseA", "42est notre Dieu ï¿½ tous"},
             { "ReponseB", "erreur" },
         },
     };
@@ -34,11 +35,11 @@ public class Computer : MonoBehaviour
     GameObject player;
     public static event Action OnVictory;
     public static event Action OnDefeat;
-    
+
 
     void Start()
     {
-        
+
     }
 
     // Question
@@ -53,10 +54,10 @@ public class Computer : MonoBehaviour
 
     public void GetAnswer(int answer)
     {
-        switch(canvasManager.index)
+        switch (canvasManager.index)
         {
             case 0:
-                if(answer == 0)
+                if (answer == 0)
                 {
                     answers.Add(true);
                 }
@@ -87,10 +88,11 @@ public class Computer : MonoBehaviour
                 break;
         }
         canvasManager.index++;
-        if(canvasManager.index > 2)
+        if (canvasManager.index > 2)
         {
             GetScore();
-        } else
+        }
+        else
         {
             AskQuestion();
         }
@@ -113,5 +115,38 @@ public class Computer : MonoBehaviour
             OnDefeat?.Invoke();
         }
         StartCoroutine(canvasManager.DisplayResults(result));
+    }
+
+    // Try again
+
+    public void TryAgain()
+    {
+        canvasManager.index = 0;
+        answers.Clear();
+        canvasManager.start.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
+        StopAllCoroutines();
+        StartCoroutine(canvasManager.DisplayWelcomeText());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player = collision.gameObject;
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+
+    void Update()
+    {
+
     }
 }
