@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -11,12 +11,12 @@ public class Policien : MonoBehaviour
 
     public List<string> dialogues = new List<string>() { "Quel est le meilleur manga entre One Piece, Naruto et Bleach ?",
                     "J'aime bien VueJS et...",
-                    "T'es allé voir la doc ?",
+                    "T'es allï¿½ voir la doc ?",
                     "Attends, je regarde.",
-                    "T'étais où y a une heure ?",
-                    "J'ai regardé ta question... J'ai pas trouvé.",
-                    "Faudrait que tu demandes à Link",
-                    "T’as fini la piscine ?"
+                    "T'ï¿½tais oï¿½ y a une heure ?",
+                    "J'ai regardï¿½ ta question... J'ai pas trouvï¿½.",
+                    "Faudrait que tu demandes ï¿½ Link",
+                    "Tï¿½as fini la piscine ?"
                 };
 
     internal int controllerIndex = -1;
@@ -53,17 +53,17 @@ public class Policien : MonoBehaviour
     private void CryingDefeat()
     {
         dialogues.Clear();
-        dialogues.Add("Tu commences bien l’année... Allez, va finir ta journée…");
+        dialogues.Add("Tu commences bien lï¿½annï¿½e... Allez, va finir ta journï¿½eï¿½");
         dialogues.Add("T'as lu la doc ?");
-        dialogues.Add("Euh non, je sais pas, t'as demandé à Link ?");
+        dialogues.Add("Euh non, je sais pas, t'as demandï¿½ ï¿½ Link ?");
     }
 
     private void Celebrating()
     {
         dialogues.Clear();
-        dialogues.Add("Déjà ? Jamais compris cette techno moi…");
-        dialogues.Add("Félicitations en tout cas !");
-        dialogues.Add("Tu as mérité une pause.");
+        dialogues.Add("Dï¿½jï¿½ ? Jamais compris cette techno moiï¿½");
+        dialogues.Add("Fï¿½licitations en tout cas !");
+        dialogues.Add("Tu as mï¿½ritï¿½ une pause.");
         dialogues.Add("Il faudra que tu reviennes aider tes camarades qui en ont besoin !");
         victoryMove = true;
         OpenDoor?.Invoke();
@@ -99,7 +99,7 @@ public class Policien : MonoBehaviour
         {
             pnjSpeaks = false;
             canvas.enabled = false;
-            if(sentences != null)
+            if (sentences != null)
             {
                 sentences.Clear();
             }
@@ -113,7 +113,7 @@ public class Policien : MonoBehaviour
             typeSound.enabled = true;
             typeSound.Play();
             typeSound.loop = false;
-            if(sentences.Count == 0)
+            if (sentences.Count == 0)
             {
                 foreach (string sentence in dialogues)
                 {
@@ -220,12 +220,12 @@ public class Policien : MonoBehaviour
 
     void Update()
     {
-        if(pnjSpeaks)
+        if (pnjSpeaks)
         {
             TriggerDialogue();
         }
 
-        if(victoryMove)
+        if (victoryMove)
         {
             Move();
         }

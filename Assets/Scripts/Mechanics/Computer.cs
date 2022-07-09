@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TopdownRPG.Mechanics;
 using TMPro;
@@ -25,8 +25,8 @@ public class Computer : MonoBehaviour
         },
         new Dictionary<string, string>
         {
-            {"Question" , "Donnez la valeur de x: \n x = \"\"; y = 42; z = \"est notre Dieu à tous\"; \n x == y + z; " },
-            { "ReponseA", "42est notre Dieu à tous"},
+            {"Question" , "Donnez la valeur de x: \n x = \"\"; y = 42; z = \"est notre Dieu ï¿½ tous\"; \n x == y + z; " },
+            { "ReponseA", "42est notre Dieu ï¿½ tous"},
             { "ReponseB", "erreur" },
         },
     };
@@ -35,11 +35,11 @@ public class Computer : MonoBehaviour
     GameObject player;
     public static event Action OnVictory;
     public static event Action OnDefeat;
-    
+
 
     void Start()
     {
-        
+
     }
 
     // Question
@@ -54,10 +54,10 @@ public class Computer : MonoBehaviour
 
     public void GetAnswer(int answer)
     {
-        switch(canvasManager.index)
+        switch (canvasManager.index)
         {
             case 0:
-                if(answer == 0)
+                if (answer == 0)
                 {
                     answers.Add(true);
                 }
@@ -88,10 +88,11 @@ public class Computer : MonoBehaviour
                 break;
         }
         canvasManager.index++;
-        if(canvasManager.index > 2)
+        if (canvasManager.index > 2)
         {
             GetScore();
-        } else
+        }
+        else
         {
             AskQuestion();
         }
@@ -105,10 +106,11 @@ public class Computer : MonoBehaviour
         {
             if (answ) result++;
         }
-        if(result >= 2)
+        if (result >= 2)
         {
             OnVictory?.Invoke();
-        } else
+        }
+        else
         {
             OnDefeat?.Invoke();
         }
@@ -145,7 +147,6 @@ public class Computer : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }
-
