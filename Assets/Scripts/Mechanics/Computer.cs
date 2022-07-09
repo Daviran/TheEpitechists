@@ -5,7 +5,6 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine;
-
 public class Computer : MonoBehaviour
 {
     public CanvasManager canvasManager;
@@ -105,47 +104,14 @@ public class Computer : MonoBehaviour
         {
             if (answ) result++;
         }
-        if(result >= 2)
+        if (result >= 2)
         {
             OnVictory?.Invoke();
-        } else
+        }
+        else
         {
             OnDefeat?.Invoke();
         }
         StartCoroutine(canvasManager.DisplayResults(result));
     }
-
-    // Try again
-
-    public void TryAgain()
-    {
-        canvasManager.index = 0;
-        answers.Clear();
-        canvasManager.start.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
-        StopAllCoroutines();
-        StartCoroutine(canvasManager.DisplayWelcomeText());
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            player = collision.gameObject;
-            playerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }
-
-    void Update()
-    {
-        
-    }
 }
-
