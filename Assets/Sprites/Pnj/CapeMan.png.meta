@@ -1,37 +1,40 @@
 fileFormatVersion: 2
-guid: ddfbe19f3bd49a544bf6b7beea56902c
+guid: 5e6c2e57f7ecdc740b3a599b081d5d96
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2665746939986558707
-    second: Danouche_0
+      213: -7282229850307240011
+    second: CapeMan_0
   - first:
-      213: -8944019954408299028
-    second: Danouche_1
+      213: 2114273716567299325
+    second: CapeMan_1
   - first:
-      213: 8899927792990788327
-    second: Danouche_2
+      213: 178451092267462651
+    second: CapeMan_2
   - first:
-      213: -3705883648758020759
-    second: Danouche_3
+      213: 7170533234715838477
+    second: CapeMan_3
   - first:
-      213: -6364962053789540738
-    second: Danouche_4
+      213: -4655117438409932672
+    second: CapeMan_4
   - first:
-      213: -1528110244190783879
-    second: Danouche_5
+      213: 3032047935467336921
+    second: CapeMan_5
   - first:
-      213: -794422691512673908
-    second: Danouche_6
+      213: 5446621182809885768
+    second: CapeMan_6
   - first:
-      213: 3040044069836579204
-    second: Danouche_7
+      213: 8032340697696092674
+    second: CapeMan_7
   - first:
-      213: 138530820802202724
-    second: Danouche_8
+      213: -4364425323994271937
+    second: CapeMan_8
   - first:
-      213: -4142828232076148888
-    second: Danouche_9
+      213: -6228985272073919309
+    second: CapeMan_9
+  - first:
+      213: -5831005481131785693
+    second: CapeMan_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,211 +124,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Danouche_0
+      name: CapeMan_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 96
-        width: 31
+        width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d014405284d510bd0800000000000000
-      internalID: -2665746939986558707
+      spriteID: 5bfd0b7b88250fa90800000000000000
+      internalID: -7282229850307240011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_1
+      name: CapeMan_1
       rect:
         serializedVersion: 2
         x: 32
         y: 96
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5ec792d3570e380800000000000000
-      internalID: -8944019954408299028
+      spriteID: df450f94eb8675d10800000000000000
+      internalID: 2114273716567299325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_2
+      name: CapeMan_2
       rect:
         serializedVersion: 2
         x: 64
         y: 96
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea97d38c25e28b70800000000000000
-      internalID: 8899927792990788327
+      spriteID: bffe16ca25cf97200800000000000000
+      internalID: 178451092267462651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_3
+      name: CapeMan_3
       rect:
         serializedVersion: 2
         x: 0
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96589d0c47e029cc0800000000000000
-      internalID: -3705883648758020759
+      spriteID: d08ce516cf9d28360800000000000000
+      internalID: 7170533234715838477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_4
+      name: CapeMan_4
       rect:
         serializedVersion: 2
         x: 32
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7e980f2cbc1ba7a0800000000000000
-      internalID: -6364962053789540738
+      spriteID: 08089d78a53b56fb0800000000000000
+      internalID: -4655117438409932672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_5
+      name: CapeMan_5
       rect:
         serializedVersion: 2
         x: 64
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9767f5544df0bcae0800000000000000
-      internalID: -1528110244190783879
+      spriteID: 9d4bc77688ff31a20800000000000000
+      internalID: 3032047935467336921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_6
+      name: CapeMan_6
       rect:
         serializedVersion: 2
         x: 0
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8990e665c4a9f4f0800000000000000
-      internalID: -794422691512673908
+      spriteID: 84c408bbb19469b40800000000000000
+      internalID: 5446621182809885768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_7
+      name: CapeMan_7
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 481642489f7603a20800000000000000
-      internalID: 3040044069836579204
+      spriteID: 202c611be4b987f60800000000000000
+      internalID: 8032340697696092674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_8
+      name: CapeMan_8
       rect:
         serializedVersion: 2
         x: 64
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46ccb5c2c092ce100800000000000000
-      internalID: 138530820802202724
+      spriteID: f3f2a92aa427e63c0800000000000000
+      internalID: -4364425323994271937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Danouche_9
+      name: CapeMan_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f34ad2ca7b186c0800000000000000
-      internalID: -4142828232076148888
+      spriteID: 3b4e4eac5e23e89a0800000000000000
+      internalID: -6228985272073919309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CapeMan_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322c8cda86b141fa0800000000000000
+      internalID: -5831005481131785693
       vertices: []
       indices: 
       edges: []
@@ -333,7 +357,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 2db92643c8f46a24a97392875b42b417
     internalID: 0
     vertices: []
     indices: 
