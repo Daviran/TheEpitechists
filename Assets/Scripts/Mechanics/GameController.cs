@@ -36,11 +36,16 @@ public class GameController : MonoBehaviour
         Instance = this;
     }
 
+    void Awake()
+    {
+
+    }
+
     private void Start()
     {
 
     }
-void OnDisable()
+    void OnDisable()
     {
         if (Instance == this) Instance = null;
     }
@@ -52,6 +57,6 @@ void OnDisable()
 
     void Tick()
     {
-        Debug.Log(charaIndex);
+
     }
 }

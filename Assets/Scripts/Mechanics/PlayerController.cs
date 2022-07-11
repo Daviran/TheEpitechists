@@ -13,26 +13,19 @@ namespace TopdownRPG.Mechanics
         public new Rigidbody2D rigidbody;
         public PlayerInstance player;
         public bool canMove = true;
+        bool isSit = false;
         public Animator animator;
         /*public EdouPlayer edouard;
         public DavidPlayer david;*/
 
         Vector2 movement;
 
-        private void Awake()
+        void Awake()
         {
-            /*switch(PlayerChoice.playerIndex)
-            {
-                case 0:
-                    player = new EdouPlayer();
-                    break;
-                case 1:
-                    player = new DavidPlayer();
-                    break;
-            }*/
+         
         }
 
-        private void Start()
+        void Start()
         {
             player = GameController.player;
             player.playerController = this;
@@ -43,6 +36,19 @@ namespace TopdownRPG.Mechanics
             if (GameController.triggeredEvents["ClocheOut"] == false && Input.GetKey(KeyCode.P))
             {
                 GameController.triggeredEvents["ClocheOut"] = true;
+            }
+        }
+
+        public void SetSit(bool sit)
+        {
+            isSit = sit;
+        }
+
+        void OnTriggerStay2D(Collider2D collision)
+        {
+            if(collision.CompareTag("PNJ"))
+            {
+                isSit = false;
             }
         }
 
@@ -70,7 +76,7 @@ namespace TopdownRPG.Mechanics
 
         private void FixedUpdate()
         {
-            if (canMove)
+            if (canMove && !isSit)
             {
                 rigidbody.MovePosition(rigidbody.position + moveSpeed * Time.fixedDeltaTime * movement);
             }

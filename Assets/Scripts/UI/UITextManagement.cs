@@ -16,10 +16,12 @@ public class UITextManagement : MonoBehaviour
     public Text text;
     public Image dialogueBox;
     public Canvas canvas;
+    public Image spaceBar;
     PlayerInstance player;
     LoadLevel loadLevel;
     Collider2D test;
     FabienneIntro fab;
+    public bool introCin = false;
 
     private void Awake()
     {
@@ -27,7 +29,7 @@ public class UITextManagement : MonoBehaviour
         loadLevel = FindObjectOfType<LoadLevel>();
         player = GameController.player;
         dialogueBox.gameObject.SetActive(false);
-        Debug.Log(dialogueBox.isActiveAndEnabled);
+        spaceBar.gameObject.SetActive(false);
     }
     void Start()
     {
@@ -40,7 +42,7 @@ public class UITextManagement : MonoBehaviour
     void DisplayCanvas()
     {
         dialogueBox.gameObject.SetActive(true);
-        Debug.Log(dialogueBox.isActiveAndEnabled);
+        spaceBar.gameObject.SetActive(true);
     }
 
     void DisplayDialogue()
@@ -54,15 +56,17 @@ public class UITextManagement : MonoBehaviour
                 Debug.Log(introText.Length);
                 if (index == introText.Length)
                 {
+                    introCin = true;
                     StartCoroutine(StartCinematique());
-                }
+                    spaceBar.gameObject.SetActive(false);
+            }
             }
         
     }
 
     IEnumerator StartCinematique()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         canvas.gameObject.SetActive(false);
         dialogueBox.gameObject.SetActive(false);
         Time.timeScale = 1;
@@ -75,6 +79,9 @@ public class UITextManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayDialogue();
+        if(!introCin)
+        {
+            DisplayDialogue();
+        }
     }
 }
