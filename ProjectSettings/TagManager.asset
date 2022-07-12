@@ -20,6 +20,7 @@ TagManager:
   - Cape
   - Tonneau
   - PNJ
+  - Item
   layers:
   - Default
   - TransparentFX
