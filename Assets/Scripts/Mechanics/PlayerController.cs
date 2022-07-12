@@ -9,6 +9,7 @@ namespace TopdownRPG.Mechanics
 {
     public class PlayerController : MonoBehaviour
     {
+       
         public float moveSpeed = 5f;
         public new Rigidbody2D rigidbody;
         public PlayerInstance player;
@@ -54,6 +55,7 @@ namespace TopdownRPG.Mechanics
 
         void Update()
     {
+
             movement.x = Input.GetAxisRaw("Horizontal");
             animator.SetFloat("Horizontal", movement.x);
             movement.y = Input.GetAxisRaw("Vertical");
@@ -81,6 +83,7 @@ namespace TopdownRPG.Mechanics
                 rigidbody.MovePosition(rigidbody.position + moveSpeed * Time.fixedDeltaTime * movement);
             }
         }
+    
     }
 
 }
