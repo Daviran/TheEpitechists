@@ -66796,7 +66796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7827cd11245714349ab9f6603c5f88b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d322d9ca4d10f8c4f9af9a722a15a944, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -66904,13 +66904,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019886694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e30313b9113fc374fa1bce47e5c2d981, type: 3}
+  m_Script: {fileID: 11500000, guid: dad92603267419f4c9ecbb8de5a8a142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 1043274099}
---- !u!114 &1019886706
+  energyBar: {fileID: 1203333941}
+--- !u!114 &1019886712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66919,11 +66917,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019886694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 380b74dfb876dde4799fc5a0ab7b1962, type: 3}
+  m_Script: {fileID: 11500000, guid: 1197b0ccc4216964692d53960a1040c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyBar: {fileID: 1203333941}
-  currentEnergy: 0
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 1043274099}
 --- !u!1 &1043274096
 GameObject:
   m_ObjectHideFlags: 0
@@ -67024,10 +67023,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043274096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4b6251f78dc20408fbd9791bd2444f, type: 3}
+  m_Script: {fileID: 11500000, guid: ae8d19b9fbcf4724485b6147fc778db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1043274098}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.9433962, g: 0.11564246, b: 0.031149892, a: 1}
+    key1: {r: 1, g: 0.8662327, b: 0.0990566, a: 1}
+    key2: {r: 0.056114297, g: 0.9150943, b: 0.25572708, a: 0}
+    key3: {r: 0.056114297, g: 0.9150943, b: 0.25572708, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 33095
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  fill: {fileID: 1321756088}
 --- !u!1 &1203333938
 GameObject:
   m_ObjectHideFlags: 0
@@ -67128,7 +67157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203333938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 213d66fe3227cee4380db5e4ae22ffc2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f04d5ce4c0dd7549886d5f8f88e09c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1203333940}
@@ -67390,7 +67419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 34a8271f7eb5bfe4dae3cba8f76a2191, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 324483f64a2f0344ab58707855a87aab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
