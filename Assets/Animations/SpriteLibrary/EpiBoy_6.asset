@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: EpiBoy_6
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Movement
+    m_Hash: 229373857
+    m_CategoryList:
+    - m_Name: Down_1
+      m_Hash: -432720149
+      m_Sprite: {fileID: 3916529081317207894, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Down_2
+      m_Hash: 2134665041
+      m_Sprite: {fileID: 6274568795768878499, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Up_1
+      m_Hash: -442824323
+      m_Sprite: {fileID: -6475297535942472623, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Up_2
+      m_Hash: 2089965767
+      m_Sprite: {fileID: -1865291171659821676, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Right_1
+      m_Hash: -329741074
+      m_Sprite: {fileID: -228085826057809894, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Right_2
+      m_Hash: 1968299348
+      m_Sprite: {fileID: -7714212959283510101, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Left_1
+      m_Hash: -1178420613
+      m_Sprite: {fileID: 5111638579518478729, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+    - m_Name: Left_2
+      m_Hash: 550235073
+      m_Sprite: {fileID: 6584201520623328372, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}

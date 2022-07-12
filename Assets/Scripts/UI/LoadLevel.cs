@@ -10,15 +10,15 @@ namespace TopdownRPG.UI
         public float transitionTime = 1f;
         public Animator transition;
 
-        public void LoadNextLevel()
+        public void LoadNextLevel(float delay = 1f)
         {
-            StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1));
+            StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1, delay));
         }
 
-        IEnumerator LoadNextScene(int levelIndex)
+        IEnumerator LoadNextScene(int levelIndex, float delay)
         {
             //transition.SetTrigger("Start");
-            yield return new WaitForSeconds(transitionTime);
+            yield return new WaitForSeconds(delay);
             SceneManager.LoadScene(levelIndex);
 
 

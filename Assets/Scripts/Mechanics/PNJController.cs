@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PNJController : MonoBehaviour
 {
 
-    public PNJInstance[] pnjs;
+    public PNJ[] pnjs;
 
     private void Awake()
     {
-        pnjs = FindObjectsOfType<PNJInstance>();
+        pnjs = FindObjectsOfType<PNJ>();
         for (var i = 0; i < pnjs.Length; i++)
         {
             pnjs[i].controllerIndex = i;

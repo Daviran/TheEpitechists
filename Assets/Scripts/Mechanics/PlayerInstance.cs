@@ -11,6 +11,8 @@ namespace TopdownRPG.Mechanics
         {
             CurrentHp = MaxHp;
         }
+
+        public PlayerController playerController;
         public enum PlayerState
         {
             escape,
