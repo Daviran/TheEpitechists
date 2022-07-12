@@ -159,7 +159,9 @@ public class PNJMagicDuels : MonoBehaviour
 
     void Update()
     {
-        if(range < 10.00 && !pnjSpeaks && !hasSpoken)
+        range = Vector3.Distance(transform.position, player.transform.position);
+        Debug.Log(range);
+        if(range < 8.00 && !pnjSpeaks && !hasSpoken)
         {
             player.canMove = false;
             GoToPlayer();
