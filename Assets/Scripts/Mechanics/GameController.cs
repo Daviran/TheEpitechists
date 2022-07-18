@@ -52,6 +52,6 @@ void OnDisable()
 
     void Tick()
     {
-        Debug.Log(charaIndex);
+        /*Debug.Log(charaIndex);*/
     }
 }
