@@ -28,12 +28,6 @@ MonoBehaviour:
     - m_Name: Up_2
       m_Hash: 2089965767
       m_Sprite: {fileID: 4322837308647646615, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
-    - m_Name: Left_1
-      m_Hash: -1178420613
-      m_Sprite: {fileID: -2331411775370069835, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
-    - m_Name: Left_2
-      m_Hash: 550235073
-      m_Sprite: {fileID: 7861966758892863282, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
     - m_Name: Right_1
       m_Hash: -329741074
       m_Sprite: {fileID: 8587417067358800216, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
