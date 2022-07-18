@@ -4,35 +4,36 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TopdownRPG.Mechanics;
+using Assets.Scripts.UI;
 
 public class PNJMagicDuels : MonoBehaviour
 {
     public string[] dialogues = { "Tu as déclenssé ma carte pièze !", "Il est l'heure pour toi de me faire face dans un duel Magic™ au sommet !", "Prépare toi à être vaincu !" };
-    int skinIndex;
-    internal int controllerIndex = -1;
+    public string[] challengeLines = { "Crois tu vraiment pouvoir me vaincre ?", "En garde !" };
+    public string[] winPunchline = { "Tu ne peux rien face à mes stratégies !", "Libre à toi de revenir essayer de me défier.", "Si l'envie de perdre te reprend, ahah !" };
     internal PNJMagicDuels PnjMagicDuels;
     Canvas canvas;
     RectTransform boxPosition;
     RectTransform dialogueBox;
     Text dialogueText;
     AudioSource typeSound;
-    private bool pnjSpeaks = false;
-    private Queue<string> sentences;
     Animator animator;
-    public PlayerController player;
-    
     Vector3 directionVector;
     Transform myTransform;
-    float speed = 7;
     Rigidbody2D myRigidBody;
+    public MagicBoardManager magicBoard;
+    public AudioSource duelistsEyesMeet;
+    public PlayerController player;
+    private Queue<string> sentences;
 
-    public Collider2D MagicArena;
-    
     float moveTimeSeconds;
     float moveTime = 5;
+    float speed = 5;
 
     float range;
-    bool hasSpoken = false;
+    public bool hasSpoken = false;
+    public bool triggered = false;
+    public bool pnjSpeaks = false;
 
     private void Awake()
     {
@@ -43,10 +44,12 @@ public class PNJMagicDuels : MonoBehaviour
         boxPosition = canvas.GetComponentInChildren<RectTransform>();
         dialogueBox = boxPosition.GetComponentInChildren<RectTransform>();
         typeSound = dialogueBox.GetComponentInChildren<AudioSource>();
+        duelistsEyesMeet = GetComponent<AudioSource>();
         typeSound.enabled = false;
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
         sentences = new Queue<string>();
         animator = GetComponent<Animator>();
+        animator.SetFloat("Speed", 0);
         player = FindObjectOfType<PlayerController>();
     }
 
@@ -60,9 +63,36 @@ public class PNJMagicDuels : MonoBehaviour
         }
     }
 
-    private void TriggerDialogue()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (pnjSpeaks && Input.GetKeyDown(KeyCode.E))
+        pnjSpeaks = true;
+    }
+
+    public void TauntAndChallenge()
+    {
+        if (sentences.Count == 0 && !hasSpoken)
+        {
+            GetNewLines(challengeLines);
+        }
+        else
+        {
+            DisplayNextSentence();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                DisplayNextSentence();
+            }
+        }
+    }
+
+    private void TriggerDialogue(string[] dialogue)
+    {
+        if(pnjSpeaks && !hasSpoken && sentences.Count == dialogue.Length)
+        {
+            StartCoroutine(TypeSentence(dialogue[0]));
+            sentences.Dequeue();
+            
+        }
+        if(pnjSpeaks && !hasSpoken && Input.GetKeyDown(KeyCode.E))
         {
             typeSound.enabled = true;
             typeSound.Play();
@@ -76,8 +106,9 @@ public class PNJMagicDuels : MonoBehaviour
         if (sentences.Count == 0)
         {
             canvas.enabled = false;
-            player.canMove = true;
             hasSpoken = true;
+            duelistsEyesMeet.Stop();
+            magicBoard.StartCoroutine(magicBoard.WaitToLaunch());
             return;
         }
 
@@ -99,79 +130,48 @@ public class PNJMagicDuels : MonoBehaviour
 
     }
 
-    void GoToPlayer()
+    IEnumerator GoToPlayer(float seconds)
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-    }
-
-        void Travel()
-    {
-
-    }
-
-    void ChangeDirection()
-    {
-        int direction = UnityEngine.Random.Range(0, 4);
-        switch (direction)
+        yield return new WaitForSeconds(seconds);
+        if (!pnjSpeaks)
         {
-            case 0:
-                directionVector = Vector3.right;
-                animator.SetFloat("Horizontal", 1);
-                animator.SetFloat("Vertical", 0);
-                break;
-            case 1:
-                directionVector = Vector3.up;
-                animator.SetFloat("Horizontal", 0);
-                animator.SetFloat("Vertical", 1);
-                break;
-            case 2:
-                directionVector = Vector3.down;
-                animator.SetFloat("Horizontal", 0);
-                animator.SetFloat("Vertical", -1);
-                break;
-            case 3:
-                directionVector = Vector3.left;
-                animator.SetFloat("Horizontal", -1);
-                animator.SetFloat("Vertical", 0);
-                break;
-            default:
-                break;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+    }
+    public void GetNewLines(string[] lines)
+    {
+        foreach (string sentence in lines)
+        {
+            sentences.Enqueue(sentence);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        pnjSpeaks = true;
-    }
-
-
-    void PNJPath()
-    {
-
-    }
     void Start()
     {
-         foreach (string sentence in dialogues)
-            {
-                sentences.Enqueue(sentence);
-            }
+         GetNewLines(dialogues);
     }
 
     void Update()
     {
+
         range = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log(range);
-        if(range < 8.00 && !pnjSpeaks && !hasSpoken)
+        if (range < 5.50 && !triggered)
+        {
+            animator.SetFloat("Horizontal", 1);
+            animator.SetFloat("Speed", 1);
+            player.canMove = false;
+            triggered = true;
+            duelistsEyesMeet.Play();
+        }
+        if(triggered && !hasSpoken && !pnjSpeaks)
+        {
+
+            StartCoroutine(GoToPlayer(3));
+        }
+        if (pnjSpeaks && !hasSpoken)
         {
             player.canMove = false;
-            GoToPlayer();
-            animator.SetFloat("Speed", 1);
-
-        } else
-        {
-            TriggerDialogue();
-            animator.SetFloat("Speed", 0);
-
+            TriggerDialogue(dialogues);
         }
     }
 }

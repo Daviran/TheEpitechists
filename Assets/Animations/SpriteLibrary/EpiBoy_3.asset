@@ -34,9 +34,18 @@ MonoBehaviour:
     - m_Name: Right_2
       m_Hash: 1968299348
       m_Sprite: {fileID: -620942012736563113, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
-    - m_Name: Left_1
-      m_Hash: -1178420613
-      m_Sprite: {fileID: -2331411775370069835, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
-    - m_Name: Left_2
-      m_Hash: 550235073
+  - m_Name: Idle
+    m_Hash: 2081823275
+    m_CategoryList:
+    - m_Name: Down
+      m_Hash: -1127399675
+      m_Sprite: {fileID: 9061434975635026030, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
+    - m_Name: Up
+      m_Hash: -703542574
+      m_Sprite: {fileID: 118395307409324003, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
+    - m_Name: Left
+      m_Hash: -631945130
       m_Sprite: {fileID: 7861966758892863282, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}
+    - m_Name: Right
+      m_Hash: 1963678224
+      m_Sprite: {fileID: -620942012736563113, guid: 031f8c455d42b3d46b2019d6f3e21dee, type: 3}

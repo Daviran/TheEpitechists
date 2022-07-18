@@ -57,6 +57,7 @@ public class GameController : MonoBehaviour
 
     void Tick()
     {
+        /*Debug.Log(charaIndex);*/
 
     }
 }

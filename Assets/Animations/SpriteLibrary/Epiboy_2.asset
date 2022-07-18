@@ -28,15 +28,31 @@ MonoBehaviour:
     - m_Name: Up_2
       m_Hash: 2089965767
       m_Sprite: {fileID: 6962547340562340667, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
-    - m_Name: Right_1
-      m_Hash: -329741074
-      m_Sprite: {fileID: -498543353661603793, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
-    - m_Name: Right_2
-      m_Hash: 1968299348
-      m_Sprite: {fileID: -2400365523168688055, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
     - m_Name: Left_1
       m_Hash: -1178420613
       m_Sprite: {fileID: 290683642687417996, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
     - m_Name: Left_2
       m_Hash: 550235073
       m_Sprite: {fileID: -8802824223111569907, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+    - m_Name: Right_1
+      m_Hash: -329741074
+      m_Sprite: {fileID: -498543353661603793, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+    - m_Name: Right_2
+      m_Hash: 1968299348
+      m_Sprite: {fileID: -2400365523168688055, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+  - m_Name: Idle
+    m_Hash: 2081823275
+    m_CategoryList:
+    - m_Name: Down
+      m_Hash: -1127399675
+      m_Sprite: {fileID: -5440587081502111396, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+    - m_Name: Up
+      m_Hash: -703542574
+      m_Sprite: {fileID: 8743565960487687473, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+    - m_Name: Left
+      m_Hash: -631945130
+      m_Sprite: {fileID: -8802824223111569907, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+    - m_Name: Right
+      m_Hash: 1963678224
+      m_Sprite: {fileID: -2400365523168688055, guid: 545420825c212594c8aa4c7911b3fc5b, type: 3}
+

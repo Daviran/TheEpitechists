@@ -40,18 +40,19 @@ MonoBehaviour:
     - m_Name: Right_2
       m_Hash: 1968299348
       m_Sprite: {fileID: -1860691722525734466, guid: 07ead34c12a359840a963002af507add, type: 3}
-  - m_Name: Idel
-    m_Hash: -737666618
+  - m_Name: Idle
+    m_Hash: 2081823275
     m_CategoryList:
-    - m_Name: Idle_Up
-      m_Hash: 2139721285
-      m_Sprite: {fileID: -2253341452790233327, guid: 07ead34c12a359840a963002af507add, type: 3}
-    - m_Name: Idle_Down
-      m_Hash: -209973304
+    - m_Name: Down
+      m_Hash: -1127399675
       m_Sprite: {fileID: -594312171185989376, guid: 07ead34c12a359840a963002af507add, type: 3}
-    - m_Name: Idle_Right
-      m_Hash: -1869523667
-      m_Sprite: {fileID: -1860691722525734466, guid: 07ead34c12a359840a963002af507add, type: 3}
-    - m_Name: Idle_Left
-      m_Hash: -1780189029
+    - m_Name: Up
+      m_Hash: -703542574
+      m_Sprite: {fileID: -2253341452790233327, guid: 07ead34c12a359840a963002af507add, type: 3}
+    - m_Name: Left
+      m_Hash: -631945130
       m_Sprite: {fileID: 3082607503273247539, guid: 07ead34c12a359840a963002af507add, type: 3}
+    - m_Name: Right
+      m_Hash: 1963678224
+      m_Sprite: {fileID: -1860691722525734466, guid: 07ead34c12a359840a963002af507add, type: 3}
+
