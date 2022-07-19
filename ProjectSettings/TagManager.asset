@@ -21,11 +21,24 @@ TagManager:
   - Tonneau
   - PNJ
   - Item
+  - babbage
+  - aqua
+  - cray
+  - office
+  - byron
+  - reception
+  - pascal
+  - on_demand
+  - rium
+  - administration
+  - knuth
+  - hammilton
+  - turing
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - luc
   - Water
   - UI
   - 
