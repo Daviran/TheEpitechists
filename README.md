@@ -1,3 +1,4 @@
+
 # The Epitechists: Escape from Epi!
 
 Ce projet de fin d'année est un petit jeu réalisé sur Unity en 2D. Le but étant de collecter assez de pièces pour pouvoir s'échapper d'Epitech, en les trouvant par exemple ou encore en résolvant des mini-jeux / épreuves diverses... sous la contrainte du temps! 
@@ -20,7 +21,8 @@ Le jeu est encore en cours de développement (une release en .exe est prévue d'
 
 Direction le [Unity Store](https://store.unity.com/fr#plans-individual) pour choisir la license de Unity ( étudiant ou personnel) : les deux sont gratuites et suffisent amplement pour le projet.
 ![license unity](https://raw.githubusercontent.com/Daviran/TheEpitechists/main/Unity.png)
-On télécharge le setup; et on lance l'installation! La première partie est terminée!
+On télécharge le setup; et on lance l'installation! On obtient alors Unity Hub qui nous permettra de télécharger les versions Unity dont on a besoin. On clique sur Install, et on choisit la version requise : la 2020 en l’occurrence.
+
 
 ### Installation de Visual Studio
 Nous avons choisi de coder via Visual Studio pour des raisons pratiques, cependant, n'importe quel éditeur de code pouvant gérer du C# fera amplement l'affaire. Cette partie est donc optionnelle pour les personnes utilisant leur propre éditeur de code.
@@ -49,4 +51,10 @@ B --> D(On importe les différentes Scènes sur Unity)
 ## Lancer une scène
 
 Cette étape sera non nécessaire lors de la release du .exe
+Pour lancer une scène, on ouvre Unity et on sélectionne le projet. 
+Une fois cette étape accomplie, il suffit de se rendre dans Assets/Scenes ( sur l'onglet project) et de faire glisser-déposer la scène. 
+On peut ensuite lancer la scène avec le bouton play et explorer la feature.
+
+Image récapitulative ( avec un très bel edit via Paint)
+![image récap](https://raw.githubusercontent.com/Daviran/TheEpitechists/main/unityScene1.JPG)
 
