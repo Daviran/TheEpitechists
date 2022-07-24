@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Danouche
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Movement
+    m_Hash: 229373857
+    m_CategoryList:
+    - m_Name: Down_1
+      m_Hash: -432720149
+      m_Sprite: {fileID: -2665746939986558707, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Down_2
+      m_Hash: 2134665041
+      m_Sprite: {fileID: -8944019954408299028, guid: 1c0c65fc59c76394f9b646b2d99c8a4b, type: 3}
+    - m_Name: Up_1
+      m_Hash: -442824323
+      m_Sprite: {fileID: -3705883648758020759, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Up_2
+      m_Hash: 2089965767
+      m_Sprite: {fileID: -6364962053789540738, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Right_1
+      m_Hash: -329741074
+      m_Sprite: {fileID: -794422691512673908, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Right_2
+      m_Hash: 1968299348
+      m_Sprite: {fileID: 3040044069836579204, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Left_1
+      m_Hash: -1178420613
+      m_Sprite: {fileID: 138530820802202724, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Left_2
+      m_Hash: 550235073
+      m_Sprite: {fileID: -4142828232076148888, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+  - m_Name: Idle
+    m_Hash: 2081823275
+    m_CategoryList:
+    - m_Name: Idle_Up
+      m_Hash: 2139721285
+      m_Sprite: {fileID: -1528110244190783879, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Idle_Down
+      m_Hash: -209973304
+      m_Sprite: {fileID: 8899927792990788327, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Idle_Left
+      m_Hash: -1780189029
+      m_Sprite: {fileID: -4142828232076148888, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}
+    - m_Name: Idle_Right
+      m_Hash: -1869523667
+      m_Sprite: {fileID: 3040044069836579204, guid: ddfbe19f3bd49a544bf6b7beea56902c, type: 3}

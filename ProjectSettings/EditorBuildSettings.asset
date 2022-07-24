@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/feature_203_cinm_intro.unity
     guid: f0039b08deef3ea45bb993982ca420c9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/feature_201_npcMovement.unity
     guid: cb3f3226178ae114bba2e7824595eb06
+  - enabled: 1
+    path: Assets/Scenes/feature_210_test_pnj_path.unity
+    guid: f7f872da6c6c85443b9b9b0a3c35f92c
   m_configObjects: {}
