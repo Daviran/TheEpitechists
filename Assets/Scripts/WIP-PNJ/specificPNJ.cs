@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using TopdownRPG.DialogWIP;
 using UnityEngine;
 
 public class specificPNJ : PNJ

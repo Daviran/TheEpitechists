@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace TopdownRPG.DialogWIP
+{
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
@@ -53,4 +55,6 @@ public class DialogueManager : MonoBehaviour
     {
         
     }
+}
+
 }

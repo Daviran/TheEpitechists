@@ -32,6 +32,22 @@ namespace TopdownRPG.Mechanics
             }
         }
 
+        public void LevelUp(string capacity)
+        {
+            switch(capacity)
+            {
+                case "physic":
+                    Physic++;
+                    break;
+                case "techno":
+                    Techno++;
+                    break;
+                case "social":
+                    Social++;
+                    break;
+            }
+        }
+
     }
 
 }

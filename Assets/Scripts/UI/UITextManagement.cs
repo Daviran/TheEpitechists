@@ -35,7 +35,7 @@ public class UITextManagement : MonoBehaviour
     {
         //Time.timeScale = 0;
         Invoke(nameof(DisplayCanvas), 1f);
-        playerName = "Bonjour Monsieur " + player.Name + " , vous n'avez plus d'argent, niquez-vous. Bisou";
+        playerName = "Bonjour Monsieur " + player.Name + " , vous n'avez plus d'argent, on vous aime. Bisou";
         introText = new string[] { "...", "....", ".......", playerName };
     }
 

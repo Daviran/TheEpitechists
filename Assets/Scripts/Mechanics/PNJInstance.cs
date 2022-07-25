@@ -191,7 +191,7 @@ public class PNJInstance : MonoBehaviour
     void Update()
     {
         moveTimeSeconds -= Time.deltaTime;
-        if (moveTimeSeconds <= 0)
+        if (moveTimeSeconds <= 0 && !isSit)
         {
             moveTimeSeconds = moveTime;
             ChangeDirection();
