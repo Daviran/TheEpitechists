@@ -18,7 +18,6 @@ namespace TopdownRPG.Gameplay
         public void CharacterChoose(int index)
         {
             GameController.charaIndex = index;
-            Debug.Log(GameController.charaIndex);
             switch (index)
             {
                 case 0:
@@ -26,6 +25,9 @@ namespace TopdownRPG.Gameplay
                     break;
                 case 1:
                     GameController.player = new DavidPlayer();
+                    break;
+                case 2:
+                    GameController.player = new CarmeloPlayer();
                     break;
                 default:
                     break;

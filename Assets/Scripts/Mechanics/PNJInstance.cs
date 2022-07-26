@@ -34,6 +34,7 @@ public class PNJInstance : MonoBehaviour
     AudioSource typeSound;
     bool pnjSpeaks = false;
     bool isSit = false;
+    public bool travel = false;
     private Queue<string> sentences;
     Animator animator;
 
@@ -196,7 +197,7 @@ public class PNJInstance : MonoBehaviour
             moveTimeSeconds = moveTime;
             ChangeDirection();
         }
-        if (!pnjSpeaks && !isSit)
+        if (!pnjSpeaks && !isSit && !travel)
         {
             Wander();
             animator.SetFloat("Speed", 1);

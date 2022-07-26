@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3916529081317207894, guid: 76eb6f3fe15e346478707e367ccf3024, type: 3}
+  m_Sprite: {fileID: -3566172859656957948, guid: 89f7a3a643768e64990d9cdf59f3bf34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   text: {fileID: 0}
   canvas: {fileID: 0}
   dayOne: {fileID: 0}
+  capeMan: {fileID: 0}
   spawnPiscine: {fileID: 0}
   callOver: 0
   racket: 0

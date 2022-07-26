@@ -16,6 +16,7 @@ namespace TopdownRPG.Mechanics
         public bool canMove = true;
         bool isSit = false;
         public Animator animator;
+        int coins;
         /*public EdouPlayer edouard;
         public DavidPlayer david;*/
 
@@ -25,9 +26,14 @@ namespace TopdownRPG.Mechanics
         {
          
         }
+        void OnEnable()
+        {
+            ItemPickup.UponPickup += AddCoin;
+        }
 
         void Start()
         {
+            coins = 0;
             player = GameController.player;
             player.playerController = this;
         }
@@ -45,6 +51,15 @@ namespace TopdownRPG.Mechanics
             isSit = sit;
         }
 
+        void AddCoin()
+        {
+            coins += 1;
+        }
+
+        public int GetCoins()
+        {
+            return coins;
+        }
         void OnTriggerStay2D(Collider2D collision)
         {
             if(collision.CompareTag("PNJ"))
@@ -74,6 +89,7 @@ namespace TopdownRPG.Mechanics
             animator.SetFloat("Speed", Mathf.Abs(movement.x + movement.y));
 
             testBoolEvent();
+            Debug.Log(GetCoins());
         }
 
         private void FixedUpdate()

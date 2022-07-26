@@ -35,7 +35,8 @@ public class UITextManagement : MonoBehaviour
     {
         //Time.timeScale = 0;
         Invoke(nameof(DisplayCanvas), 1f);
-        playerName = "Bonjour Monsieur " + player.Name + " , vous n'avez plus d'argent, niquez-vous. Bisou";
+        AudioManager.Instance.PhoneClip(true);
+        playerName = "Bonjour Monsieur " + player.Name + " , vous n'avez plus d'argent, \nnous avons le plaisir de vous proposer des AGIOS\n s'élevant à hauteur de 95% de votre RSA. Bisou.";
         introText = new string[] { "...", "....", ".......", playerName };
     }
 
@@ -47,20 +48,23 @@ public class UITextManagement : MonoBehaviour
 
     void DisplayDialogue()
     {
-        
-            if (Input.GetButtonDown("Jump"))
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            text.text = introText[index];
+            if (index == 3)
             {
-                Debug.Log(index);
-                text.text = introText[index];
-                index++;
-                Debug.Log(introText.Length);
-                if (index == introText.Length)
-                {
-                    introCin = true;
-                    StartCoroutine(StartCinematique());
-                    spaceBar.gameObject.SetActive(false);
+                AudioManager.Instance.PhoneClip(false);
             }
-            }
+            index++;
+        }
+        if (index == introText.Length)
+        {
+            introCin = true;
+            StartCoroutine(StartCinematique());
+            spaceBar.gameObject.SetActive(false);
+        }
+            
         
     }
 

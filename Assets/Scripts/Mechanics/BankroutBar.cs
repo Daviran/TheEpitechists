@@ -21,17 +21,24 @@ public class BankroutBar : MonoBehaviour
     void OnEnable()
     {
         TimeManager.OnMinuteChanged += BankroutComing;
+        DestructibleObjects.objectDestroy += AddTime;
     }
 
     void OnDisable()
     {
         TimeManager.OnMinuteChanged -= BankroutComing;
+        DestructibleObjects.objectDestroy -= AddTime;
     }
 
     void BankroutComing()
     {
         _countDown = (float)TimeManager.Minute / 60 / 40;
         _slider.value -= _countDown;
+    }
+
+    void AddTime()
+    {
+        _slider.value += 10;
     }
 
     void Update()

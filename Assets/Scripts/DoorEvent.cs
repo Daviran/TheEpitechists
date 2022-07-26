@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TopdownRPG.Mechanics;
 using UnityEngine;
 
 public class DoorEvent : MonoBehaviour
@@ -7,19 +9,34 @@ public class DoorEvent : MonoBehaviour
     public Animator animator;
     public Collider2D collider;
     protected bool isEnabled = true;
+    bool unlock = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnEnable()
     {
-        if (true == isEnabled & "player2" == collision.name)
+        Computer.OnVictory += UnlockDoor;
+    }
+
+    void UnlockDoor()
+    {
+        unlock = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(gameObject.name == "Cray" && !unlock)
+        {
+            return;
+        }
+        if (true == isEnabled && collision.CompareTag("Player") || collision.CompareTag("PNJ"))
         {
             animator.SetBool("Open", true);
             StartCoroutine(Delay(false));
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        if (true == isEnabled & "player2" == collision.name)
+        if (true == isEnabled && collision.CompareTag("Player") || collision.CompareTag("PNJ"))
         {
             animator.SetBool("Open", false);
             StartCoroutine(Delay(true));

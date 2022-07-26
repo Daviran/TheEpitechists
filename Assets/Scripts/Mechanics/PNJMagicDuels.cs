@@ -30,7 +30,7 @@ public class PNJMagicDuels : MonoBehaviour
     float moveTime = 5;
     float speed = 5;
 
-    float range;
+    float range = 10;
     public bool hasSpoken = false;
     public bool triggered = false;
     public bool pnjSpeaks = false;
@@ -50,7 +50,6 @@ public class PNJMagicDuels : MonoBehaviour
         sentences = new Queue<string>();
         animator = GetComponent<Animator>();
         animator.SetFloat("Speed", 0);
-        player = FindObjectOfType<PlayerController>();
     }
 
 
@@ -63,11 +62,11 @@ public class PNJMagicDuels : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        pnjSpeaks = true;
+        if(collision.CompareTag("Player"))
+            pnjSpeaks = true;
     }
-
     public void TauntAndChallenge()
     {
         if (sentences.Count == 0 && !hasSpoken)
@@ -136,6 +135,11 @@ public class PNJMagicDuels : MonoBehaviour
         if (!pnjSpeaks)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            /*if (transform.position.x <= (player.transform.position.x -1))
+                myRigidBody.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
+            if (transform.position.y <= (player.transform.position.y))
+                myRigidBody.MovePosition(transform.position + Vector3.up * speed * Time.deltaTime);
+            myTransform.LookAt(player.transform);*/
         }
     }
     public void GetNewLines(string[] lines)
@@ -148,19 +152,23 @@ public class PNJMagicDuels : MonoBehaviour
 
     void Start()
     {
-         GetNewLines(dialogues);
+        player = FindObjectOfType<PlayerController>();
+        GetNewLines(dialogues);
     }
 
     void Update()
     {
-
-        range = Vector3.Distance(transform.position, player.transform.position);
+        if(player)
+        {
+            range = Vector3.Distance(transform.position, player.transform.position);
+        }
         if (range < 5.50 && !triggered)
         {
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Speed", 1);
             player.canMove = false;
             triggered = true;
+            AudioManager.Instance.PlayClip(false);
             duelistsEyesMeet.Play();
         }
         if(triggered && !hasSpoken && !pnjSpeaks)

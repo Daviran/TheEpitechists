@@ -1,9 +1,11 @@
 using UnityEngine;
+using System;
 
 public class ItemPickup : Interactable
 {
 
 	public Item item;   // Item to put in the inventory if picked up
+    public static event Action UponPickup;
     void Awake()
     {
         //Make Collider2D as trigger 
@@ -26,8 +28,9 @@ public class ItemPickup : Interactable
 	// Pick up the item
 	void PickUp()
 	{
+        UponPickup?.Invoke();
 		Debug.Log("Picking up " + item.name);
-		Inventory.instance.Add(item);   // Add to inventory
+		Inventory.Instance.Add(item);   // Add to inventory
 
 		Destroy(gameObject);    // Destroy item from scene
 	}

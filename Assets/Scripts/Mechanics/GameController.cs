@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-
+        scene = SceneManager.GetActiveScene();
     }
     void OnDisable()
     {

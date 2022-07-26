@@ -17,6 +17,7 @@ public class FabienneIntro : MonoBehaviour
     public Text text;
     public Canvas canvas;
     public TextMeshProUGUI dayOne;
+    public GameObject capeMan;
     Rigidbody2D rb;
     PlayerController player;
     public GameObject spawnPiscine;
@@ -26,6 +27,7 @@ public class FabienneIntro : MonoBehaviour
     public bool callOver = false;
     public bool racket = false;
     Animator _animator;
+    Vector3 capeSpawn = new Vector3(-40, 30.1f);
 
 
     void Awake()
@@ -37,13 +39,14 @@ public class FabienneIntro : MonoBehaviour
     }
     void Start()
     {
-        
+        AudioManager.Instance.PlayClip(true);
     }
 
     void MoveTowardsPlayer()
     {
         if (yPos < 0.1 && xPos < 1.1)
         {
+            _animator.SetFloat("Speed", 0);
             StartCoroutine(DisplayMessage());
             callOver = false;
         }
@@ -105,13 +108,12 @@ public class FabienneIntro : MonoBehaviour
         canvas.gameObject.SetActive(true);
         backGround.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        Debug.Log(player);
-        Debug.Log(spawnPiscine);
         player.gameObject.transform.position = spawnPiscine.transform.position;
         displayBox.gameObject.SetActive(false);
         canvas.gameObject.SetActive(false);
         backGround.gameObject.SetActive(false);
         player.canMove = true;
+        Instantiate(capeMan, capeSpawn, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

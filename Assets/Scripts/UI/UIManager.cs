@@ -8,9 +8,6 @@ public class UIManager : MonoBehaviour
 {
     public bool isDisplay = false;
     public Canvas canvas;
-    public Button start;
-    public Button load;
-    public Button exit;
     PlayerInstance player;
 
     private void OnEnable()
@@ -32,7 +29,6 @@ public class UIManager : MonoBehaviour
         if (show)
         {
             Time.timeScale = 0;
-            Debug.Log(Time.timeScale);
             canvas.gameObject.SetActive(true);
         } else
         {
@@ -69,7 +65,6 @@ public class UIManager : MonoBehaviour
         {
             DisplayMenu(show: !isDisplay);
         }
-        Debug.Log(Time.timeScale);
         /* if (Input.GetKey(KeyCode.M) && isDisplay == true)
          {
              ExitMenu();

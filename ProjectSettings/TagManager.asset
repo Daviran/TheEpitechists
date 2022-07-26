@@ -34,6 +34,7 @@ TagManager:
   - knuth
   - hammilton
   - turing
+  - destructibleWall
   layers:
   - Default
   - TransparentFX
@@ -77,14 +78,14 @@ TagManager:
   - name: PNJ
     uniqueID: 706220261
     locked: 0
-  - name: Player
-    uniqueID: 2408093749
-    locked: 0
   - name: Chairs
     uniqueID: 214117849
     locked: 0
   - name: Activable
     uniqueID: 2724120179
+    locked: 0
+  - name: Player
+    uniqueID: 2408093749
     locked: 0
   - name: Dialogue
     uniqueID: 1809673951

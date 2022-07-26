@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 123183108700180689, guid: 069e1b4d2cc98d24fb56e14b0d5fee0b, type: 3}
       propertyPath: m_SpriteLibraryAsset
       value: 
-      objectReference: {fileID: 11400000, guid: e484dca808c107848ad8053bf14a6928, type: 2}
+      objectReference: {fileID: 11400000, guid: ea932430cb2819747abdea8d39a4ad69, type: 2}
     - target: {fileID: 4559553110450026714, guid: 069e1b4d2cc98d24fb56e14b0d5fee0b, type: 3}
       propertyPath: m_Name
       value: PNJHolder2
@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4559553110450026715, guid: 069e1b4d2cc98d24fb56e14b0d5fee0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4559553110450026715, guid: 069e1b4d2cc98d24fb56e14b0d5fee0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4559553110450026715, guid: 069e1b4d2cc98d24fb56e14b0d5fee0b, type: 3}
       propertyPath: m_LocalPosition.z

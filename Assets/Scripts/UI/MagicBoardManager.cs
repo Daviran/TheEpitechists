@@ -15,7 +15,7 @@ namespace Assets.Scripts.UI
 
         public Canvas canvas;
         public PNJMagicDuels pnj;
-        public AudioSource duelMusic;
+        AudioSource duelMusic;
         public TextMeshProUGUI duelText;
         public bool encounterOver;
         public bool arenaUp;
@@ -84,6 +84,7 @@ namespace Assets.Scripts.UI
                 arenaUp = false;
                 encounterOver = true;
                 pnj.player.canMove = true;
+                AudioManager.Instance.PlayClip(true);
             }
 
         }

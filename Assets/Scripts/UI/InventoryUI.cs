@@ -14,7 +14,7 @@ public class InventoryUI : MonoBehaviour
 
 	void Start()
 	{
-		inventory = Inventory.instance;
+		inventory = Inventory.Instance;
 		inventory.onItemChangedCallback += UpdateUI;
 	}
 
@@ -50,3 +50,4 @@ public class InventoryUI : MonoBehaviour
 	}
 
 }
+

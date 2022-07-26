@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using TopdownRPG.Mechanics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,13 +12,14 @@ public class Policien : MonoBehaviour
 
     public List<string> dialogues = new List<string>() { "Quel est le meilleur manga entre One Piece, Naruto et Bleach ?",
                     "J'aime bien VueJS et...",
-                    "T'es all� voir la doc ?",
+                    "T'es allé voir la doc ?",
                     "Attends, je regarde.",
-                    "T'�tais o� y a une heure ?",
-                    "J'ai regard� ta question... J'ai pas trouv�.",
-                    "Faudrait que tu demandes � Link",
-                    "T�as fini la piscine ?"
+                    "T'étais où y a une heure ?",
+                    "J'ai regard� ta question... J'ai pas trouvé.",
+                    "Faudrait que tu demandes à Link",
+                    "T'as fini la piscine ?"
                 };
+    public List<string> dialoguesBack;
 
     internal int controllerIndex = -1;
     internal PNJController pnjController;
@@ -31,6 +33,7 @@ public class Policien : MonoBehaviour
     private Queue<string> sentences;
     Animator animator;
     Rigidbody2D rb;
+    PlayerController player;
 
     Vector3 directionVector;
     Vector2 movePosition;
@@ -38,16 +41,19 @@ public class Policien : MonoBehaviour
     float xPos;
     float yPos;
     float speed = 7;
+    float dist;
     private void OnEnable()
     {
         Computer.OnVictory += Celebrating;
         Computer.OnDefeat += CryingDefeat;
+        DestructibleObjects.objectDestroy += Police;
     }
 
     private void OnDisable()
     {
         Computer.OnVictory -= Celebrating;
         Computer.OnDefeat -= CryingDefeat;
+        DestructibleObjects.objectDestroy -= Police;
     }
 
     private void CryingDefeat()
@@ -61,9 +67,9 @@ public class Policien : MonoBehaviour
     private void Celebrating()
     {
         dialogues.Clear();
-        dialogues.Add("D�j� ? Jamais compris cette techno moi�");
-        dialogues.Add("F�licitations en tout cas !");
-        dialogues.Add("Tu as m�rit� une pause.");
+        dialogues.Add("Déjà ? Jamais compris cette techno moi !");
+        dialogues.Add("Félicitations en tout cas !");
+        dialogues.Add("Tu as mérité une pause.");
         dialogues.Add("Il faudra que tu reviennes aider tes camarades qui en ont besoin !");
         victoryMove = true;
         OpenDoor?.Invoke();
@@ -84,7 +90,6 @@ public class Policien : MonoBehaviour
         sentences = new Queue<string>();
         animator = GetComponent<Animator>();
     }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -106,6 +111,23 @@ public class Policien : MonoBehaviour
         }
     }
 
+    void Police()
+    {
+        Debug.Log(player);
+        dist = Vector3.Distance(player.transform.position, transform.position);
+        Debug.Log(dist);
+        if(dist < 1000)
+        {
+            transform.LookAt(player.transform);
+            transform.Translate(player.transform.position);
+            transform.rotation = player.transform.rotation;
+            sentences.Clear();
+            dialoguesBack = dialogues;
+            dialogues.Clear();
+            dialogues.Add("Tu t'es cru chez ta mère ? On t'enverra une facture !");
+        }
+    }
+
     private void TriggerDialogue()
     {
         if (Input.GetButtonDown("Interract"))
@@ -118,7 +140,6 @@ public class Policien : MonoBehaviour
                 foreach (string sentence in dialogues)
                 {
                     sentences.Enqueue(sentence);
-                    Debug.Log(sentences);
                 }
             }
             DisplayNextSentence();
@@ -147,6 +168,11 @@ public class Policien : MonoBehaviour
         {
             dialogueText.text += letter;
             yield return null;
+        }
+
+        if (dialoguesBack != null)
+        {
+            dialogues = dialoguesBack;
         }
 
     }
@@ -220,6 +246,7 @@ public class Policien : MonoBehaviour
 
     void Update()
     {
+        player = FindObjectOfType<PlayerController>();
         if (pnjSpeaks)
         {
             TriggerDialogue();

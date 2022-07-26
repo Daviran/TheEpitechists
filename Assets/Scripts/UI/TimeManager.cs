@@ -9,6 +9,7 @@ public class TimeManager : MonoBehaviour
     public static Action OnHourChanged;
     public static event Action LunchTime;
     public static event Action BackHomeTime;
+    public static event Action BackToWork;
 
     public static int Minute { get; private set; }
     public static int Hour { get; private set; }
@@ -17,11 +18,26 @@ public class TimeManager : MonoBehaviour
     private float minuteToRealTime = 0.5f;
     private float timer;
 
+    void OnEnable()
+    {
+        DestructibleObjects.objectDestroy += AddTime;
+    }
+
+    void OnDisable()
+    {
+        DestructibleObjects.objectDestroy -= AddTime;
+    }
+
     void Start()
     {
         Minute = 30;
         Hour = 9;
         timer = minuteToRealTime;
+    }
+
+    void AddTime()
+    {
+        Hour -= 1;
     }
 
     void Update()
@@ -40,12 +56,17 @@ public class TimeManager : MonoBehaviour
                 OnHourChanged?.Invoke();
             }
 
-            if(Hour == 12 && Minute == 0)
+            if(Hour == 11 && Minute == 0)
             {
                 LunchTime?.Invoke();
             }
 
-            if(Hour == 17 && Minute == 30)
+            if (Hour == 13 && Minute == 30)
+            {
+                BackToWork?.Invoke();
+            }
+
+            if (Hour == 17 && Minute == 30)
             {
                 BackHomeTime?.Invoke();
             }

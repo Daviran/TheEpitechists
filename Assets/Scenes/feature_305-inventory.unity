@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1604,8 +1604,19 @@ MonoBehaviour:
   - "Il est l'heure pour toi de me faire face dans un duel Magic\u2122 au sommet
     !"
   - "Pr\xE9pare toi \xE0 \xEAtre vaincu !"
+  challengeLines:
+  - Crois tu vraiment pouvoir me vaincre ?
+  - En garde !
+  winPunchline:
+  - "Tu ne peux rien face \xE0 mes strat\xE9gies !"
+  - "Libre \xE0 toi de revenir essayer de me d\xE9fier."
+  - Si l'envie de perdre te reprend, ahah !
+  magicBoard: {fileID: 0}
+  duelistsEyesMeet: {fileID: 0}
   player: {fileID: 0}
-  MagicArena: {fileID: 0}
+  hasSpoken: 0
+  triggered: 0
+  pnjSpeaks: 0
 --- !u!483693784 &797204141
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -77131,7 +77142,7 @@ GameObject:
   - component: {fileID: 1311199977}
   - component: {fileID: 1311199980}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77611,8 +77622,19 @@ MonoBehaviour:
   - "Il est l'heure pour toi de me faire face dans un duel Magic\u2122 au sommet
     !"
   - "Pr\xE9pare toi \xE0 \xEAtre vaincu !"
+  challengeLines:
+  - Crois tu vraiment pouvoir me vaincre ?
+  - En garde !
+  winPunchline:
+  - "Tu ne peux rien face \xE0 mes strat\xE9gies !"
+  - "Libre \xE0 toi de revenir essayer de me d\xE9fier."
+  - Si l'envie de perdre te reprend, ahah !
+  magicBoard: {fileID: 0}
+  duelistsEyesMeet: {fileID: 0}
   player: {fileID: 0}
-  MagicArena: {fileID: 0}
+  hasSpoken: 0
+  triggered: 0
+  pnjSpeaks: 0
 --- !u!114 &1457374329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77713,7 +77735,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -78949,6 +78971,7 @@ MonoBehaviour:
   - Il fait beau non ?
   - LoL > la vie
   - "Je ne bois pas, c'est mauvais pour la plan\xE8te"
+  travel: 0
   wanderArea: {fileID: 248732342}
 --- !u!58 &1881747802
 CircleCollider2D:

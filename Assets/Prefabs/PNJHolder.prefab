@@ -686,6 +686,7 @@ MonoBehaviour:
   - Que tous les langages soient unis sous 42 !
   - "un jour, 42 a compt\xE9 jusque l\u2019infini \u2026 deux fois."
   - 42 est puissante dans ta famille Luke
+  travel: 0
   wanderArea: {fileID: 4559553109696670027}
 --- !u!95 &4752161385124991510
 Animator:

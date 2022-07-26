@@ -14,7 +14,7 @@ public class Computer : MonoBehaviour
         new Dictionary<string, string>
         {
             { "Question" , "Donnez la valeur de x: \n string[] array = new string[5] \n for( i = 0; i < array.length; i++) \n { int x = 0; x++; } " },
-            { "ReponseA", "0"},
+            { "ReponseA", "1"},
             { "ReponseB", "6" },
         },
         new Dictionary<string, string>

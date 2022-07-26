@@ -16,7 +16,6 @@ public class Chairs : MonoBehaviour
         {
             player = collision.gameObject.GetComponent<PlayerController>();
             isSit = true;
-            Debug.Log(player);
         }
         if(collision.CompareTag("PNJ"))
         {
@@ -24,6 +23,14 @@ public class Chairs : MonoBehaviour
             pnj.transform.position = transform.position;
             pnj.transform.rotation = transform.rotation;
             pnj.SetSit(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isSit = false;
         }
     }
 
@@ -36,16 +43,15 @@ public class Chairs : MonoBehaviour
     {
         if(isSit && Input.GetButtonDown("Interract"))
         {
-            isSit = false;
             player.transform.position = transform.position;
             player.transform.rotation = transform.rotation;
             player.SetSit(true);
             player.animator.SetBool("Sit", true);
         }
-        if(!isSit && Input.GetButtonDown("Interract") && player != null)
+        if(isSit && Input.GetButtonDown("Cancel") && player != null)
         {
-            Debug.Log(player);
             player.canMove = true;
+            player.SetSit(false);
             player.animator.SetBool("Sit", false);
         }
     }

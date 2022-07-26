@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 378330a1b4a1aa04185ae0f0a1d0df27, type: 3}
+  m_Script: {fileID: 11500000, guid: cb6859a1f0db3484e9cd0fbcf11a1399, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  name: "Pi\xE8ce"
-  icon: {fileID: 0}
+  name: Piece
+  icon: {fileID: 21300000, guid: cfc7b21eaf2a0f54bad99d21239be5a2, type: 3}
   showInInventory: 1

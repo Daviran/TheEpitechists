@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
-	#region Singleton
-
-	public static Inventory instance;
+	public static Inventory Instance { get; private set; }
 
 	void Awake()
 	{
-		instance = this;
+		Instance = this;
 	}
-
-	#endregion
 
 	public delegate void OnItemChanged();
 	public OnItemChanged onItemChangedCallback;
 
-	public int space = 10;  // Amount of item spaces
+	public int space = 12;  // Amount of item spaces
 
 	// Our current list of items in the inventory
 	public List<Item> items = new List<Item>();
@@ -31,7 +26,6 @@ public class Inventory : MonoBehaviour
 		{
 			if (items.Count >= space)
 			{
-				Debug.Log("Not enough room.");
 				return;
 			}
 
